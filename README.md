@@ -1,8 +1,8 @@
-# Ze Jiang
-This is Ze Jiang's personal [homepage](https://zejiang-unsw.github.io/).
+# Meng Shengya
+This is Meng Shengya's personal [homepage](https://mengshengya.github.io/).
 
 ## A short introduction
-I am an engineer, hydro-climatologist and researcher. My research focuses on drought detection and attribution, as well as prediction using GCM simulations. I mainly use statistical tools to carry out my research works.
+I am a undergraduate student for the master degree in Northeastern University at Qinhuangdao. My research focuses on observer design and nonlinear system control.
 
 PROFILE:
 * Highly self-motivated researcher with demonstrated research expertise modeling hydro-climatology processes. 
@@ -12,16 +12,21 @@ PROFILE:
 
 
 ## Selected Journal Publications
-Jiang, Z., Sharma, A., & Johnson, F. (2021). Variable transformations in the spectral domain – Implications for hydrologic forecasting. *Journal of Hydrology*, 603, 126816. doi:https://doi.org/10.1016/J.JHYDROL.2021.126816
 
-Jiang, Z., Rashid, M. M., Johnson, F., & Sharma, A. (2020). A wavelet-based tool to modulate variance in predictors: An application to predicting drought anomalies. *Environmental Modelling & Software*, 135, 104907. doi:https://doi.org/10.1016/j.envsoft.2020.104907
+Meng, S., Li, S., Chi, H., Meng, F., & Pang, A. (2022). H∞ Observer Based on Descriptor Systems Applied to Estimate the State of Charge. Entropy, 24(3), 420. https://doi.org/10.3390/e24030420
 
-Jiang, Z., Sharma, A., & Johnson, F. (2020). Refining Predictor Spectral Representation Using Wavelet Theory for Improved Natural System Modeling. *Water Resources Research*, 56(3), e2019WR026962. doi:https://doi.org/10.1029/2019WR026962
+孟范伟, 刘凯, 孟圣亚, & 庞爱平. (n.d.). 基于系数图法的多入多出系统控制器设计方法. 控制与决策, 1–9. https://doi.org/10.13195/j.kzyjc.2021.1131
 
-Jiang, Z., Sharma, A., & Johnson, F. (2019). Assessing the sensitivity of hydro-climatological change detection methods to model uncertainty and bias. *Advances in Water Resources*, 134, 103430. doi:https://doi.org/10.1016/j.advwatres.2019.103430
+Liu, K., Meng, F., Meng, S., & Wang, C. (2021). Robust Controller Design for Multi-Input Multi-Output Systems Using Coefficient Diagram Method. Entropy, 23(9), 1180. https://doi.org/10.3390/e23091180
 
-Jiang, Z., Raghavan, S. V., Hur, J., Sun, Y., Liong, S.-Y., Nguyen, V. Q., & Van Pham Dang, T. (2019). Future changes in rice yields over the Mekong River Delta due to climate change-Alarming or alerting? *Theoretical and Applied Climatology*, 137(1), 545-555. doi:https://doi.org/10.1007/s00704-018-2617-z
+Yang, W., Meng, F., Meng, S., Man, S., & Pang, A. (2020). Tracking Control of Magnetic Levitation System Using Model-Free RBF Neural Network Design. IEEE Access, 8, 204563–204572. https://doi.org/10.1109/ACCESS.2020.3037352
+
+Pang, A., Meng, S., He, Z., & Zhang, J. (2020). Robust H-Inf Phase Control for Flexible System With Weak Damping. IEEE Access, 8, 195733–195740. https://doi.org/10.1109/ACCESS.2020.3034222
+
+Wang, D., Meng, F., Meng, S., & Pang, A. (2020). Design of Stable Controller for Flexible Solar Panel by H ∞ Loop-Shaping Method. Complexity, 2020, 1–8. https://doi.org/10.1155/2020/6540167
+
+Wang, D., Meng, F., & Meng, S. (2020). Linearization Method of Nonlinear Magnetic Levitation System. Mathematical Problems in Engineering, 2020, 1–5. https://doi.org/10.1155/2020/9873651
 
 ## For more information
-More info about me can be found in [CV](https://zejiang-unsw.github.io/cv/).
+More info about me can be found in [CV](https://mengshengya.github.io/cv/).
 
