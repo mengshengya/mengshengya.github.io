@@ -65,3 +65,4 @@ FFmpeg 安装在忽略的 `tmp/media-tools/` 中，未新增网站运行依赖�
 - 本地 Chrome 在 1440、768、390、320 px 视口下确认新图成功加载、保持自然比例、没有横向溢出；已查看桌面与手机卡片截图。
 - 首页项目链接正常，项目页环境图仍使用 `platoon.png`；无浏览器错误。原始 PNG 保留，网站只发布生成的 WebP 副本。
 - 本地截图位于 `tmp/previews/cep-2026/qcar-cover-local-*`，浏览器检查日志位于 `tmp/logs/qcar-cover-local.json`；线上结果见 [部署记录](deployment.md)。
+- 同日已完成自动发布，正式主页在相同四种宽度下验证通过；新 WebP 返回 HTTP 200，尺寸与文件大小一致，完整显示并可进入项目页。线上截图位于 `tmp/previews/cep-2026/qcar-cover-live-*`，日志位于 `tmp/logs/qcar-cover-live.json`。

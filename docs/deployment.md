@@ -8,6 +8,8 @@
 
 同日已发布当前单位与四项学术交流更新，首页在桌面、平板和两种手机宽度下完成线上验证，详见下方更新记录。
 
+同日随后已将首页 CEP 2026 卡片配图替换为用户提供的 QCar 应用图，并完成相同四种宽度的线上验证。
+
 2026-09-08 已完成本地验证：`npm run check` 得到 0 errors、0 warnings、0 hints；使用 `SITE_URL=https://mengshengya.github.io` 和 `BASE_PATH=/` 构建成功，生成首页与 `/research/cep-2026/` 两个页面。本地浏览器在 1440 px 桌面与 390 px 手机宽度下检查两个页面，均返回 200，未发现横向溢出、坏图、锚点错误或 JavaScript 错误；13 条站内页面与资源的 HEAD 请求均返回 200。两段视频元数据可读取，时长分别约 111.53 秒与 80.70 秒。正式网站验证结果见下节。
 
 ## 本地运行与构建
@@ -97,6 +99,16 @@ npm.cmd run preview
 - 本次浏览器验证范围为更新后的首页；CEP 项目页的视频播放与 PDF 验证仍对应首次发布记录。
 
 本次线上截图与检查结果保存在 `tmp/previews/homepage/visits-update-live-*`。发布后的记录同步提交仅修改说明文件，不改变已验证的网站产物。
+
+### 2026-09-08 首页 QCar 应用配图更新
+
+- 网站源码提交：[`24f83622b0bca665612df1ffb6f0b9d720adcc07`](https://github.com/mengshengya/mengshengya.github.io/commit/24f83622b0bca665612df1ffb6f0b9d720adcc07)。
+- [GitHub Actions 运行 34246425957](https://github.com/mengshengya/mengshengya.github.io/actions/runs/34246425957) 最终为 `success`。
+- 首页研究卡片改用用户提供的 `Qcar_application.png` 的网页副本，保留完整比例与图内标注；图片转换和材料对应见 [CEP 2026 材料说明](cep-2026-materials.md)。
+- 本地 `npm run check` 得到 0 errors、0 warnings、0 hints，正式站点配置下 `npm run build` 成功。
+- 正式首页在 1440 × 1000、768 × 1024、390 × 844、320 × 740 视口下均返回 HTTP 200；新 WebP 为 1600 × 839 px、250,704 bytes，资源类型正确、加载成功，展示比例与原图一致，无横向溢出或浏览器错误。已查看桌面和手机卡片截图。
+- 首页项目链接正常，项目页环境图仍为 `platoon.png`。本次未重测视频播放及 PDF 下载。
+- 线上截图位于 `tmp/previews/cep-2026/qcar-cover-live-*`，验证日志位于 `tmp/logs/qcar-cover-live.json`。发布后的记录同步提交仅修改说明文件。
 
 ## 更新与回退
 
