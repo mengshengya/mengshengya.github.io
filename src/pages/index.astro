@@ -1,0 +1,199 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import FeaturedProject from '../components/FeaturedProject.astro';
+import { profile } from '../data/profile';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const navigation = [
+  { id: 'about', label: 'About' },
+  { id: 'research', label: 'Research' },
+  { id: 'publications', label: 'Publications' },
+  { id: 'background', label: 'Background' },
+];
+const publicationGroups = ['Journal', 'Conference'] as const;
+---
+
+<BaseLayout title={`${profile.name} | Automatic Control & State Estimation`} description={`${profile.role} at the ${profile.affiliation}. Research in distributed observers, nonlinear systems, and connected autonomous vehicles.`}>
+  <header class="site-header">
+    <div class="header-inner container">
+      <a class="brand" href="#top" aria-label={`${profile.name}, back to top`}>
+        <span class="monogram" aria-hidden="true">SM<span>.</span></span>
+        <span>{profile.name}</span>
+      </a>
+      <nav aria-label="Main navigation">
+        {navigation.map((item) => <a href={`#${item.id}`} data-section={item.id}>{item.label}</a>)}
+      </nav>
+      <a class="header-contact" href={`mailto:${profile.email}`}>Get in touch <Icon name="arrow" size={15} /></a>
+    </div>
+  </header>
+
+  <div class="page-layout container">
+    <aside class="profile-sidebar" aria-label="Personal profile">
+      <div class="profile-card">
+        <img class="portrait" src={`${base}${profile.photo}`} alt={profile.name} width="2448" height="3264" fetchpriority="high" />
+        <div class="profile-details">
+          <p class="profile-name">{profile.name}</p>
+          <p class="profile-role">{profile.role}</p>
+          <p class="profile-affiliation">{profile.affiliation}</p>
+          <p class="profile-location"><Icon name="location" size={15} />{profile.location}</p>
+          <div class="profile-links">
+            <a href={`mailto:${profile.email}`}><Icon name="mail" />Email<Icon name="arrow" size={14} /></a>
+            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" />LinkedIn<Icon name="arrow" size={14} /></a>
+          </div>
+        </div>
+      </div>
+      <div class="sidebar-note">
+        <span class="small-label">Research focus</span>
+        <ul>{profile.researchInterests.map((interest) => <li>{interest.title}</li>)}</ul>
+      </div>
+    </aside>
+
+    <main id="main-content" class="main-content">
+      <section id="about" class="section-panel about-section" aria-labelledby="about-heading">
+        <p class="eyebrow"><span></span>Automatic control & state estimation</p>
+        <h1 id="about-heading">{profile.name}<span class="title-dot">.</span></h1>
+        <p class="hero-subtitle">{profile.role} · {profile.affiliation}</p>
+        <div class="biography">
+          {profile.summary.map((paragraph) => <p>{paragraph}</p>)}
+        </div>
+        <div class="hero-links">
+          <a class="button button-primary" href="#publications">Selected publications <Icon name="arrow" size={16} /></a>
+          <a class="text-link" href="#background">My academic journey <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <section id="research" class="section-panel" aria-labelledby="research-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">01</span><h2 id="research-heading">Research interests</h2></div>
+        <div class="research-grid">
+          {profile.researchInterests.map((interest, index) => (
+            <article class="research-item">
+              <span class="research-marker" aria-hidden="true">{String(index + 1).padStart(2, '0')} /</span>
+              <h3>{interest.title}</h3>
+              <p>{interest.description}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="section-panel" aria-label="Featured research project">
+        <FeaturedProject />
+      </section>
+
+      <section id="publications" class="section-panel" aria-labelledby="publications-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">02</span><h2 id="publications-heading">Selected publications</h2></div>
+        {publicationGroups.map((type) => (
+          <div class="publication-group">
+            <h3 class="small-label">{type === 'Journal' ? 'Journal articles' : 'Conference papers'}</h3>
+            <ol class="publication-list">
+              {profile.publications.filter((paper) => paper.type === type).map((paper) => (
+                <li class="publication">
+                  <span class="publication-year">{paper.year}</span>
+                  <div>
+                    <h4>{paper.projectPath ? <a class="publication-title-link" href={`${base}${paper.projectPath}`}>{paper.title}</a> : paper.title}</h4>
+                    <p class="authors">{paper.authors.split(/(S\. Meng)/g).map((part) => part === 'S. Meng' ? <strong>{part}</strong> : part)}</p>
+                    <p class="venue">{paper.venue}</p>
+                    <p class="publication-details">{paper.details}</p>
+                    {(paper.projectPath || paper.manuscriptPath) && <div class="publication-links">
+                      {paper.projectPath && <a href={`${base}${paper.projectPath}`}>Project & videos <Icon name="arrow" size={13} /></a>}
+                      {paper.manuscriptPath && <a href={`${base}${paper.manuscriptPath}`} target="_blank" rel="noopener noreferrer">Author manuscript PDF <Icon name="arrow" size={13} /></a>}
+                    </div>}
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        ))}
+        <details class="manuscripts">
+          <summary>Prepared & submitted manuscripts <span class="count">{profile.manuscripts.length}</span></summary>
+          <div class="manuscript-list">
+            {profile.manuscripts.map((paper) => (
+              <article>
+                <span class="status-label">{paper.status}</span>
+                <h3>{paper.title}</h3>
+                <p class="authors">{paper.authors}</p>
+                <p class="publication-details">{paper.status === 'Submitted' && 'Submitted to '}{paper.venue}</p>
+              </article>
+            ))}
+          </div>
+        </details>
+      </section>
+
+      <section id="background" class="section-panel" aria-labelledby="background-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">03</span><h2 id="background-heading">Education & experience</h2></div>
+        <ol class="education-list">
+          {profile.education.map((item) => (
+            <li>
+              <div class="timeline-date">{item.period}</div>
+              <div class="education-content">
+                <h3>{item.degree}</h3>
+                <p class="institution">{item.institution}<span> · {item.location}</span></p>
+                {item.thesis && <p class="thesis"><span>Thesis</span> {item.thesis}</p>}
+                {item.supervisors && <p class="supervisors">{item.supervisors.length > 1 ? 'Supervisors' : 'Supervisor'}: {item.supervisors.join(' and ')}</p>}
+              </div>
+            </li>
+          ))}
+        </ol>
+        {profile.visits.map((visit) => (
+          <article class="visit">
+            <span class="small-label">Academic exchange</span>
+            <div class="visit-heading"><h3>{visit.title} · {visit.institution}</h3><span>{visit.period}</span></div>
+            <p>{visit.description}</p>
+            <p class="supervisors">{visit.location} · Host: {visit.host}</p>
+          </article>
+        ))}
+      </section>
+
+      <section id="service" class="section-panel" aria-labelledby="service-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">04</span><h2 id="service-heading">Academic service</h2></div>
+        <div class="service-grid">
+          <div><h3 class="small-label">Journal reviewer</h3><ul class="service-list">{profile.service.journals.map((journal) => <li>{journal}</li>)}</ul></div>
+          <div><h3 class="small-label">Conference reviewer</h3><ul class="service-list">{profile.service.conferences.map((conference) => <li>{conference}</li>)}</ul></div>
+        </div>
+      </section>
+
+      <section id="awards" class="section-panel" aria-labelledby="awards-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">05</span><h2 id="awards-heading">Selected honors & awards</h2></div>
+        <ul class="awards-list">
+          {profile.awards.map((award) => (
+            <li><span class="award-date">{award.period}</span><div><h3>{award.title}</h3><p>{award.organization}</p></div></li>
+          ))}
+        </ul>
+      </section>
+
+      <section id="contact" class="contact-panel" aria-labelledby="contact-heading">
+        <div><p class="small-label">Get in touch</p><h2 id="contact-heading">Let's connect.</h2></div>
+        <a href={`mailto:${profile.email}`}>{profile.email}<Icon name="arrow" size={22} /></a>
+      </section>
+    </main>
+  </div>
+
+  <footer class="site-footer container">
+    <p>© {new Date().getFullYear()} {profile.name}</p>
+    <a href="#top">Back to top <Icon name="up" size={15} /></a>
+  </footer>
+
+  <script>
+    const navigationLinks = Array.from(document.querySelectorAll<HTMLAnchorElement>('[data-section]'));
+    const sections = navigationLinks.map((link) => document.getElementById(link.dataset.section ?? '')).filter((section): section is HTMLElement => section !== null);
+    let scheduled = false;
+    const updateNavigation = () => {
+      const headerBottom = document.querySelector('.site-header')?.getBoundingClientRect().bottom ?? 0;
+      const current = sections.filter((section) => section.getBoundingClientRect().top <= headerBottom + 96).at(-1) ?? sections[0];
+      for (const link of navigationLinks) {
+        if (link.dataset.section === current?.id) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      }
+      scheduled = false;
+    };
+    const scheduleNavigation = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(updateNavigation);
+    };
+    window.addEventListener('scroll', scheduleNavigation, { passive: true });
+    window.addEventListener('resize', scheduleNavigation);
+    window.addEventListener('pageshow', scheduleNavigation);
+    updateNavigation();
+  </script>
+</BaseLayout>

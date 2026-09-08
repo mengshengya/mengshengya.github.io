@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { cep2026 as project, cep2026Citation } from '../../data/cep2026';
+import { profile } from '../../data/profile';
+import { Content } from '../../content/projects/cep-2026.md';
+import '../../styles/project.css';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title={`CEP 2026 | ${project.title}`} description={project.summary}>
+  <header class="site-header">
+    <div class="header-inner container project-header">
+      <a class="brand" href={`${base}/`}><span class="monogram" aria-hidden="true">SM<span>.</span></span><span>{profile.name}</span></a>
+      <a class="text-link" href={`${base}/#research`}><span aria-hidden="true">←</span> Back to research</a>
+    </div>
+  </header>
+
+  <main id="main-content" class="project-container">
+    <section class="project-hero" aria-labelledby="project-title">
+      <p class="eyebrow"><span></span>Control Engineering Practice · 2026</p>
+      <h1 id="project-title">{project.title}</h1>
+      <p class="project-authors">{project.authors.map((author, index) => <>{index > 0 && <span class="author-separator"> · </span>}{author === profile.name ? <a href={`${base}/`}>{author}</a> : author}</>)}</p>
+      <p class="project-affiliation">{project.affiliation}</p>
+      <p class="project-journal">{project.venue}, Vol. {project.volume}, Article {project.article}, {project.year}</p>
+      <div class="project-actions">
+        <a class="button button-primary" href={`${base}${project.manuscript}`} target="_blank" rel="noopener noreferrer">Author manuscript PDF <Icon name="arrow" size={16} /></a>
+        <a class="button button-outline" href="#demonstrations">Watch demonstrations <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href="#citation">Cite this work</a>
+      </div>
+    </section>
+
+    <figure class="project-cover">
+      <img src={`${base}${project.cover}`} alt={project.coverAlt} width="1536" height="832" fetchpriority="high" />
+      <figcaption>Four-vehicle platooning in the QLabs virtual environment.</figcaption>
+    </figure>
+
+    <section class="section-panel project-overview" aria-label="Research overview">
+      <p class="project-summary">{project.summary}</p>
+      <div class="project-prose"><Content /></div>
+    </section>
+
+    <section id="demonstrations" class="project-section" aria-labelledby="demonstrations-title">
+      <div class="project-section-heading"><p class="small-label">Simulation recordings</p><h2 id="demonstrations-title">See the platoon in motion</h2><p>Two recordings of the distributed observer–controller in QLabs, with the vehicle view and state-estimation plots shown together.</p></div>
+      <div class="demo-list">
+        {project.videos.map((video, index) => (
+          <article class="demo-card" aria-labelledby={`${video.id}-title`}>
+            <div class="demo-heading"><span class="section-number" aria-hidden="true">0{index + 1}</span><h3 id={`${video.id}-title`}>{video.title}</h3><span class="demo-label">QLabs simulation</span></div>
+            <div class="video-frame">
+              <video controls playsinline preload="none" poster={`${base}${video.poster}`} width="1920" height="1080" aria-labelledby={`${video.id}-title`} aria-describedby={`${video.id}-description`}>
+              <source src={`${base}${video.source}`} type="video/mp4" />
+              Your browser does not support embedded video. <a href={`${base}${video.source}`}>Download the MP4 recording.</a>
+              </video>
+              <button class="video-start" type="button" aria-label={`Play video: ${video.title}`} hidden>
+                <img src={`${base}${video.poster}`} alt="" width="1920" height="1080" loading="lazy" />
+                <span><span aria-hidden="true">▶</span> Play video</span>
+              </button>
+            </div>
+            <div class="demo-caption"><p id={`${video.id}-description`}>{video.description} Silent recording.</p><a href={`${base}${video.source}`} download>Download video <Icon name="arrow" size={14} /></a></div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section id="results" class="section-panel project-results" aria-labelledby="results-title">
+      <div class="project-section-heading"><p class="small-label">Selected results</p><h2 id="results-title">Response to leader start–stop maneuvers</h2><p>Leader acceleration departs from the constant-speed design assumption and produces larger observer transients. The reported tests show attenuating acceleration oscillations along the platoon despite this mismatch.</p></div>
+      <div class="result-grid">
+        {project.figures.map((figure) => (
+          <figure>
+            <h3>{figure.title}</h3>
+            <a href={`${base}${figure.source}`} target="_blank" rel="noopener noreferrer" aria-label={`Open full-size figure: ${figure.title}`}><img src={`${base}${figure.source}`} alt={figure.caption} width={figure.width} height={figure.height} loading="lazy" /></a>
+            <figcaption>{figure.caption} <a href={`${base}${figure.source}`} target="_blank" rel="noopener noreferrer">View full size <span aria-hidden="true">↗</span></a></figcaption>
+          </figure>
+        ))}
+      </div>
+    </section>
+
+    <section id="citation" class="section-panel project-citation" aria-labelledby="citation-title">
+      <div class="citation-heading"><h2 id="citation-title">Citation</h2><button class="copy-citation" type="button" hidden>Copy BibTeX</button></div>
+      <p>{project.authors.join(', ')}. {project.title}. <em>{project.venue}</em>, {project.volume}, {project.article}, {project.year}.</p>
+      <pre><code id="bibtex">{cep2026Citation}</code></pre>
+      <p class="copy-status" role="status" aria-live="polite"></p>
+      <a class="text-link" href={`${base}${project.manuscript}`} target="_blank" rel="noopener noreferrer">Read the supplied author manuscript <Icon name="arrow" size={15} /></a>
+    </section>
+  </main>
+
+  <footer class="site-footer container"><p>© {new Date().getFullYear()} {profile.name}</p><a href={`${base}/#publications`}>All selected publications <Icon name="arrow" size={15} /></a></footer>
+
+  <script>
+    const button = document.querySelector<HTMLButtonElement>('.copy-citation');
+    const citation = document.getElementById('bibtex');
+    const status = document.querySelector<HTMLElement>('.copy-status');
+    if (button && citation && status && navigator.clipboard && window.isSecureContext) {
+      button.hidden = false;
+      button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(citation.textContent ?? '');
+          status.textContent = 'BibTeX copied to clipboard.';
+        } catch {
+          status.textContent = 'Please select and copy the BibTeX text above.';
+        }
+      });
+    }
+    document.querySelectorAll('video').forEach((video) => {
+      const playButton = video.parentElement?.querySelector<HTMLButtonElement>('.video-start');
+      if (playButton) {
+        playButton.hidden = false;
+        playButton.addEventListener('click', async () => {
+          playButton.hidden = true;
+          try {
+            await video.play();
+            video.focus();
+          } catch {
+            // Keep native controls and the download link available if playback fails.
+            video.controls = true;
+          }
+        });
+      }
+      video.addEventListener('play', () => {
+        if (playButton) playButton.hidden = true;
+        document.querySelectorAll('video').forEach((other) => { if (other !== video) other.pause(); });
+      });
+    });
+  </script>
+</BaseLayout>

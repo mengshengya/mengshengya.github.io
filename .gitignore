@@ -1,0 +1,37 @@
+# Original personal materials stay local; retain only directory placeholders
+# and the top-level instructions when version control is initialized.
+/materials/**
+!/materials/**/
+!/materials/**/.gitkeep
+!/materials/README.md
+
+# Temporary work stays local, using the same placeholder convention.
+/tmp/**
+!/tmp/**/
+!/tmp/**/.gitkeep
+!/tmp/README.md
+
+# Generated output, dependencies and caches.
+/dist/
+node_modules/
+.astro/
+.cache/
+__pycache__/
+*.py[cod]
+
+# Local settings and credentials. Commit only sanitized example files.
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+
+# Editor and operating-system files.
+.idea/
+*.swp
+*.swo
+*~
+*.log
+.DS_Store
+Thumbs.db
+Desktop.ini
