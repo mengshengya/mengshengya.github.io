@@ -5,9 +5,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <article class="featured-project" aria-labelledby="featured-project-title">
-  <a class="featured-image" href={`${base}${cep2026.path}`} tabindex="-1" aria-hidden="true">
-    <img src={`${base}${cep2026.cover}`} alt="" width="1536" height="832" loading="lazy" />
-    <span>QLabs · QCar2</span>
+  <a class="featured-image" href={`${base}${cep2026.path}`} tabindex="-1">
+    <img src={`${base}${cep2026.featuredImage.source}`} alt={cep2026.featuredImage.alt} width={cep2026.featuredImage.width} height={cep2026.featuredImage.height} loading="lazy" />
   </a>
   <div class="featured-copy">
     <p class="small-label">Featured research · CEP 2026</p>

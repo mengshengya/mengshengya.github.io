@@ -15,7 +15,8 @@
 | 原始材料 | 网站位置 / 用途 |
 | --- | --- |
 | `materials/publications/cep-2026/cas-dc-template.pdf` | `public/files/papers/cep-2026/author-manuscript.pdf`，逐字节保留的作者稿副本 |
-| `materials/projects/cep-2026/fig/platoon_4cars.PNG` | `public/images/research/cep-2026/platoon.png`，首页卡片与项目页环境图 |
+| `materials/projects/cep-2026/fig/platoon_4cars.PNG` | `public/images/research/cep-2026/platoon.png`，项目页环境图 |
+| `materials/inbox/Qcar_application.png` | `public/images/research/cep-2026/qcar-application.webp`，用户 2026-09-08 指定的首页研究卡片配图 |
 | `materials/media/video/cep-2026/QLab_4QCar_ObsCtr.mp4` | `public/media/video/cep-2026/smooth-road.mp4`，平路仿真演示 |
 | `materials/media/video/cep-2026/QLab_4QCar_ObsCtr_wave_road.mp4` | `public/media/video/cep-2026/wave-road.mp4`，波浪路面仿真演示 |
 | 两段原视频各自第 30 秒画面 | `public/media/posters/cep-2026/`，真实视频封面 |
@@ -25,6 +26,8 @@
 表中简写 `fig/` 位于 `materials/projects/cep-2026/fig/`。图表由所提供 PDF 直接渲染成长边 1600 px 的 PNG，保留坐标、图例和曲线，没有重绘数据。页面提供原尺寸图片入口。
 
 `platoon_4cars.PNG` 与 `platoon_4cars_small.PNG` 的 SHA-256 相同，网站仅使用一个副本，两个原文件均保留。其余 EPS、图表 PDF 和 `physical_qcar2.png` 全部归档；未确认与正文图号的对应关系前，不自动加入项目页。
+
+2026-09-08 首页卡片改用用户提供的 `Qcar_application.png`，原件保留在收件目录。原图为 4400 × 2306 px、10,154,245 bytes；网页副本通过 Sharp 等比例缩放为 1600 × 839 px，并编码为质量 92 的 WebP，大小 250,704 bytes。保留完整画面与全部标注；首页图片采用自然比例，移除可能遮挡图中文字的 QLabs 角标。该配图单独由 `cep2026.featuredImage` 维护，项目页环境图继续使用 `cep2026.cover`。新图中的实物插图不改变前文对实验验证范围的描述。
 
 ## 视频处理
 
@@ -44,9 +47,9 @@ FFmpeg 安装在忽略的 `tmp/media-tools/` 中，未新增网站运行依赖�
 - 项目元数据、资源路径和 BibTeX 在 `src/data/cep2026.ts`；CEP 首页书目信息从该文件读取。
 - 长篇介绍在 `src/content/projects/cep-2026.md`；项目页在 `src/pages/research/cep-2026.astro`，独立样式在 `src/styles/project.css`。
 - 继续提供新视频、图表或最终论文版本时，保留原件，再更新相同项目标识下的展示资源。
-- 本轮仅在本地实现，未部署到线上。
+- 首次项目页实现的验证记录如下；后续线上状态见 [部署记录](deployment.md)。
 
-## 验证记录
+## 首次项目页实现验证记录
 
 - `npm run check`：0 errors、0 warnings、0 hints；`npm run build` 成功生成首页及项目页。
 - Chrome 中检查 1440、768、390、320 px 视口：首页入口、项目页、返回链接与图片显示正常，无横向溢出或浏览器错误。
@@ -55,3 +58,10 @@ FFmpeg 安装在忽略的 `tmp/media-tools/` 中，未新增网站运行依赖�
 - 禁用 JavaScript 时保留正文、原生视频控件、下载链接及可手动复制的引用文本。
 - 检查发布目录仅包含指定的作者稿 PDF，未混入原始简历、带备注报告稿或项目说明文档。
 - 截图与验证结果位于 `tmp/previews/cep-2026/`。
+
+## 首页配图替换验证（2026-09-08）
+
+- `npm run check`：0 errors、0 warnings、0 hints；正式站点配置下 `npm run build` 成功生成两个页面。
+- 本地 Chrome 在 1440、768、390、320 px 视口下确认新图成功加载、保持自然比例、没有横向溢出；已查看桌面与手机卡片截图。
+- 首页项目链接正常，项目页环境图仍使用 `platoon.png`；无浏览器错误。原始 PNG 保留，网站只发布生成的 WebP 副本。
+- 本地截图位于 `tmp/previews/cep-2026/qcar-cover-local-*`，浏览器检查日志位于 `tmp/logs/qcar-cover-local.json`；线上结果见 [部署记录](deployment.md)。
