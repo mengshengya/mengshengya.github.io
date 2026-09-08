@@ -6,6 +6,8 @@
 
 网站已于 2026-09-08 首次发布并通过在线验证，生产地址为 [https://mengshengya.github.io/](https://mengshengya.github.io/)。GitHub Pages 发布来源为 GitHub Actions（`build_type=workflow`），强制 HTTPS 已开启。未配置自定义域名或单独的线上预览环境。
 
+同日已发布当前单位与四项学术交流更新，首页在桌面、平板和两种手机宽度下完成线上验证，详见下方更新记录。
+
 2026-09-08 已完成本地验证：`npm run check` 得到 0 errors、0 warnings、0 hints；使用 `SITE_URL=https://mengshengya.github.io` 和 `BASE_PATH=/` 构建成功，生成首页与 `/research/cep-2026/` 两个页面。本地浏览器在 1440 px 桌面与 390 px 手机宽度下检查两个页面，均返回 200，未发现横向溢出、坏图、锚点错误或 JavaScript 错误；13 条站内页面与资源的 HEAD 请求均返回 200。两段视频元数据可读取，时长分别约 111.53 秒与 80.70 秒。正式网站验证结果见下节。
 
 ## 本地运行与构建
@@ -83,6 +85,18 @@ npm.cmd run preview
 - 论文 PDF 的字节范围下载成功，响应文件头为 `%PDF-`；本次未重新逐页核对论文内容。
 
 浏览器截图及机器检查结果保留在本地 `tmp/previews/live-*.png` 与 `tmp/logs/live-verification.json`，不提交到公开仓库。首次上线后的记录同步提交仅修改说明文件，不改变已验证的网站产物。
+
+### 2026-09-08 单位与学术交流更新
+
+- 网站源码提交：[`7118bacc8d11d3535f7af7755289ac160f4db053`](https://github.com/mengshengya/mengshengya.github.io/commit/7118bacc8d11d3535f7af7755289ac160f4db053)。
+- [GitHub Actions 运行 34244700247](https://github.com/mengshengya/mengshengya.github.io/actions/runs/34244700247) 最终为 `success`，完成自动构建与 Pages 发布。
+- 当前单位更新为 `CRAN, University of Lorraine`；Academic exchanges and visits 按日期倒序展示 ArtiSmo、FAAR PRONERGY、SAGIP 与 Groningen 共四项。内容来源及完整转录见 [首页内容来源](content-source.md)。
+- 本地 `npm run check` 得到 0 errors、0 warnings、0 hints；使用正式站点配置构建成功，生成两个页面。
+- 正式首页在 1440 × 1000、768 × 1024、390 × 844、320 × 740 视口下均返回 HTTP 200。已核对四项经历的日期、题目与相关人员信息，以及资料卡、副标题、简介和页面摘要中的单位名称。
+- 四种视口均无横向溢出、无效页内锚点或浏览器错误；照片加载、页内导航、稿件列表键盘展开与收起，以及禁用 JavaScript 后的基本功能均正常。已查看桌面与小屏经历区域截图。
+- 本次浏览器验证范围为更新后的首页；CEP 项目页的视频播放与 PDF 验证仍对应首次发布记录。
+
+本次线上截图与检查结果保存在 `tmp/previews/homepage/visits-update-live-*`。发布后的记录同步提交仅修改说明文件，不改变已验证的网站产物。
 
 ## 更新与回退
 

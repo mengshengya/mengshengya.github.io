@@ -4,7 +4,7 @@
 
 已根据用户提供的英文简历和照片实现 Astro + TypeScript 首页，展示个人简介、研究方向、6 篇代表论文、4 篇准备中或已投稿稿件、教育与学术访问、学术服务、奖励和个人照片。页面入口为 `src/pages/index.astro`，公开内容集中维护在 `src/data/profile.ts`。
 
-2026-09-08 根据用户补充截图将学术交流与访问扩展为四项，并将当前单位更新为 `CRAN, University of Lorraine`。本地检查、构建及 1440、768、390、320 像素视口验证通过；内容来源见 [首页内容维护记录](docs/content-source.md)，本次线上状态见 [部署记录](docs/deployment.md)。
+2026-09-08 根据用户补充截图将学术交流与访问扩展为四项，并将当前单位更新为 `CRAN, University of Lorraine`。本地检查、构建及自动发布成功，正式首页在 1440、768、390、320 像素视口下验证通过；内容来源见 [首页内容维护记录](docs/content-source.md)，本次线上结果见 [部署记录](docs/deployment.md)。
 
 网站已于 2026-09-08 首次上线：[mengshengya.github.io](https://mengshengya.github.io/)。源码位于公开仓库 [mengshengya/mengshengya.github.io](https://github.com/mengshengya/mengshengya.github.io)，推送到 `main` 后通过 GitHub Actions 检查、构建并发布至 GitHub Pages，已启用 HTTPS。
 
