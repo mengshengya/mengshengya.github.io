@@ -41,6 +41,6 @@
 
 Astro 本地开发、检查、构建和预览命令已配置，运行要求 Node.js `>=22.12.0`。首次安装使用 `npm ci --cache tmp/npm-cache`；调整依赖使用 `npm install --cache tmp/npm-cache`，并保留更新后的锁文件。
 
-网站尚未部署，未启用自动化工作流，Git 仓库尚未初始化。后续可继续补充项目与媒体、完善独立页面，再根据实际仓库和域名接入部署。阶段完成后同步更新本节与根目录 README，检查结果只记录实际执行情况。
+网站已于 2026-09-08 首次上线至 [mengshengya.github.io](https://mengshengya.github.io/)，公开仓库为 [mengshengya/mengshengya.github.io](https://github.com/mengshengya/mengshengya.github.io)。`main` 推送通过 GitHub Actions 完成检查、构建并仅发布 `dist/`；首次部署及线上页面、布局和资源验证已完成，详见 [运行与部署记录](deployment.md)。后续可继续补充项目与媒体、完善独立页面。阶段完成后同步更新本节与根目录 README，检查结果只记录实际执行情况。
 
 已完成首个独立项目页 `/research/cep-2026/`，并接入首页研究卡片与论文链接。新增材料按论文、项目资料和原始视频分类归档；网页使用的媒体和作者稿放入 `public/`。详见 [CEP 2026 材料说明](cep-2026-materials.md)。

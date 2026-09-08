@@ -4,9 +4,9 @@
 
 项目使用 Astro + TypeScript 静态构建，首页入口为 `src/pages/index.astro`，公开资料为 `src/data/profile.ts`。Git 已初始化为 `main` 分支，公开仓库 [mengshengya/mengshengya.github.io](https://github.com/mengshengya/mengshengya.github.io) 已创建，[部署工作流](../.github/workflows/deploy.yml) 已配置。
 
-GitHub Pages 已启用，发布来源为 GitHub Actions（`build_type=workflow`），强制 HTTPS 已开启。首次推送与首次发布仍在进行。目标生产地址为 [https://mengshengya.github.io/](https://mengshengya.github.io/)，当前待在线验证，尚不记录为已上线。未配置自定义域名或单独的线上预览环境。
+网站已于 2026-09-08 首次发布并通过在线验证，生产地址为 [https://mengshengya.github.io/](https://mengshengya.github.io/)。GitHub Pages 发布来源为 GitHub Actions（`build_type=workflow`），强制 HTTPS 已开启。未配置自定义域名或单独的线上预览环境。
 
-2026-09-08 已完成本地验证：`npm run check` 得到 0 errors、0 warnings、0 hints；使用 `SITE_URL=https://mengshengya.github.io` 和 `BASE_PATH=/` 构建成功，生成首页与 `/research/cep-2026/` 两个页面。本地浏览器在 1440 px 桌面与 390 px 手机宽度下检查两个页面，均返回 200，未发现横向溢出、坏图、锚点错误或 JavaScript 错误；13 条站内页面与资源的 HEAD 请求均返回 200。两段视频元数据可读取，时长分别约 111.53 秒与 80.70 秒。以上均为本地验证，线上结果待首次发布后补充。
+2026-09-08 已完成本地验证：`npm run check` 得到 0 errors、0 warnings、0 hints；使用 `SITE_URL=https://mengshengya.github.io` 和 `BASE_PATH=/` 构建成功，生成首页与 `/research/cep-2026/` 两个页面。本地浏览器在 1440 px 桌面与 390 px 手机宽度下检查两个页面，均返回 200，未发现横向溢出、坏图、锚点错误或 JavaScript 错误；13 条站内页面与资源的 HEAD 请求均返回 200。两段视频元数据可读取，时长分别约 111.53 秒与 80.70 秒。正式网站验证结果见下节。
 
 ## 本地运行与构建
 
@@ -73,7 +73,16 @@ npm.cmd run preview
 
 ## 生产验证记录
 
-首次发布待完成。待记录发布提交、成功的 Actions 运行、实际生产地址，以及首页、项目页、图片、视频、PDF、手机和桌面布局的在线检查结果；不能以本地检查或构建成功替代线上验证。
+2026-09-08 首次发布记录：
+
+- 网站源码提交：[`cfb44acb2db5660746e3420d47faf9c255ae4465`](https://github.com/mengshengya/mengshengya.github.io/commit/cfb44acb2db5660746e3420d47faf9c255ae4465)。
+- [GitHub Actions 运行 34235287601](https://github.com/mengshengya/mengshengya.github.io/actions/runs/34235287601) 最终为 `success`，依赖安装、类型检查、静态构建和 Pages 部署均成功。
+- [首页](https://mengshengya.github.io/)和 [CEP 2026 项目页](https://mengshengya.github.io/research/cep-2026/)在桌面 1440 × 1000 与手机 390 × 844 视口下均返回 HTTP 200，canonical 使用正式 HTTPS 地址。截图显示布局与本地一致，未发现横向溢出、坏图、无效页内锚点或 JavaScript 错误。
+- 13 条站内页面、样式、图片、PDF 和视频资源的 HEAD 请求均返回 HTTP 200。
+- 桌面浏览器分别点击两段视频的播放按钮，确认播放时间向前推进且无媒体错误；两种视口均成功读取时长约 111.53 秒、80.70 秒的元数据。本次未逐帧检查完整视频，也未在实体手机上验证。
+- 论文 PDF 的字节范围下载成功，响应文件头为 `%PDF-`；本次未重新逐页核对论文内容。
+
+浏览器截图及机器检查结果保留在本地 `tmp/previews/live-*.png` 与 `tmp/logs/live-verification.json`，不提交到公开仓库。首次上线后的记录同步提交仅修改说明文件，不改变已验证的网站产物。
 
 ## 更新与回退
 

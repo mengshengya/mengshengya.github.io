@@ -4,9 +4,9 @@
 
 已根据用户提供的英文简历和照片实现 Astro + TypeScript 首页，展示个人简介、研究方向、6 篇代表论文、4 篇准备中或已投稿稿件、教育与学术访问、学术服务、奖励和个人照片。页面入口为 `src/pages/index.astro`，公开内容集中维护在 `src/data/profile.ts`。
 
-开发、检查、构建和预览命令已配置。Git 已初始化为 `main` 分支，公开仓库 [mengshengya/mengshengya.github.io](https://github.com/mengshengya/mengshengya.github.io) 已创建，GitHub Pages 工作流已配置。首次推送与发布仍在进行，目标网站 [mengshengya.github.io](https://mengshengya.github.io/) 待在线验证。
+网站已于 2026-09-08 首次上线：[mengshengya.github.io](https://mengshengya.github.io/)。源码位于公开仓库 [mengshengya/mengshengya.github.io](https://github.com/mengshengya/mengshengya.github.io)，推送到 `main` 后通过 GitHub Actions 检查、构建并发布至 GitHub Pages，已启用 HTTPS。
 
-2026-09-08 本地检查通过（0 errors、0 warnings、0 hints），按正式站点地址构建成功，生成首页和 CEP 2026 项目页。此记录仅代表本地验证。
+2026-09-08 本地检查通过（0 errors、0 warnings、0 hints），生产构建与首次自动部署成功。正式网站的首页、CEP 2026 项目页、桌面与手机布局、图片、视频启动播放及 PDF 响应已验证；详情见 [运行与部署记录](docs/deployment.md)。
 
 CEP 2026 研究项目页位于 `/research/cep-2026/`，包含研究介绍、两段 QLabs 仿真视频、结果图、作者稿 PDF 与 BibTeX；首页研究卡片和论文条目均可进入。材料对应关系见 [CEP 2026 材料说明](docs/cep-2026-materials.md)。
 
