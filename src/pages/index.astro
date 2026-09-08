@@ -14,7 +14,7 @@ const navigation = [
 const publicationGroups = ['Journal', 'Conference'] as const;
 ---
 
-<BaseLayout title={`${profile.name} | Automatic Control & State Estimation`} description={`${profile.role} at the ${profile.affiliation}. Research in distributed observers, nonlinear systems, and connected autonomous vehicles.`}>
+<BaseLayout title={`${profile.name} | Automatic Control & State Estimation`} description={`${profile.role} at ${profile.affiliation}. Research in distributed observers, nonlinear systems, and connected autonomous vehicles.`}>
   <header class="site-header">
     <div class="header-inner container">
       <a class="brand" href="#top" aria-label={`${profile.name}, back to top`}>
@@ -134,14 +134,21 @@ const publicationGroups = ['Journal', 'Conference'] as const;
             </li>
           ))}
         </ol>
-        {profile.visits.map((visit) => (
-          <article class="visit">
-            <span class="small-label">Academic exchange</span>
-            <div class="visit-heading"><h3>{visit.title} · {visit.institution}</h3><span>{visit.period}</span></div>
-            <p>{visit.description}</p>
-            <p class="supervisors">{visit.location} · Host: {visit.host}</p>
-          </article>
-        ))}
+        <section class="academic-visits" aria-labelledby="visits-heading">
+          <h3 id="visits-heading" class="small-label">Academic exchanges and visits</h3>
+          {profile.visits.map((visit) => (
+            <article class="visit">
+              <div class="visit-heading"><h4>{visit.title} · {visit.institution}</h4><span>{visit.period}</span></div>
+              <p>{visit.description}</p>
+              <p class="supervisors">{[
+                visit.location,
+                visit.invitedBy && `Invited by: ${visit.invitedBy}`,
+                visit.organizer && `Organized by: ${visit.organizer}`,
+                visit.host && `Host: ${visit.host}`,
+              ].filter(Boolean).join(' · ')}</p>
+            </article>
+          ))}
+        </section>
       </section>
 
       <section id="service" class="section-panel" aria-labelledby="service-heading">

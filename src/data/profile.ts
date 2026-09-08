@@ -35,9 +35,11 @@ export interface Manuscript {
 export interface AcademicVisit {
   title: string;
   institution: string;
-  location: string;
+  location?: string;
   period: string;
-  host: string;
+  host?: string;
+  invitedBy?: string;
+  organizer?: string;
   description: string;
 }
 
@@ -65,17 +67,17 @@ export interface Profile {
   awards: Award[];
 }
 
-// Personal facts come from the supplied CV. See docs/content-source.md.
+// Personal facts come from the supplied CV and user updates. See docs/content-source.md.
 export const profile: Profile = {
   name: 'Shengya Meng',
   role: 'PhD Candidate in Automatic Control',
-  affiliation: 'University of Lorraine',
+  affiliation: 'CRAN, University of Lorraine',
   location: 'France',
   email: 'shengya.meng@univ-lorraine.fr',
   linkedin: 'https://www.linkedin.com/in/shengya-meng-1b299a294',
   photo: '/images/profile/shengya-meng.jpg',
   summary: [
-    'I am a PhD candidate in Automatic Control at the University of Lorraine, France, supervised by Ali Zemouche and Marouane Alma. My doctoral research focuses on advanced estimation algorithms for autonomous vehicles.',
+    'I am a PhD candidate in Automatic Control at CRAN, University of Lorraine, France, supervised by Ali Zemouche and Marouane Alma. My doctoral research focuses on advanced estimation algorithms for autonomous vehicles.',
     'My research interests include distributed observers, nonlinear systems, and vehicle applications. I work on state estimation and observer design for connected vehicles and vehicle platoons, including communication delays, sensor faults, and string stability.',
     'I received my master’s degree in Control Science and Engineering from Northeastern University in 2023 and my bachelor’s degree in Automation from Guizhou University in 2020.',
   ],
@@ -216,6 +218,29 @@ export const profile: Profile = {
     ],
   },
   visits: [
+    {
+      title: 'Invited talk',
+      institution: 'ArtiSmo project',
+      location: 'Rouen',
+      period: 'Jun 15–16, 2026',
+      invitedBy: 'Ali Zemouche',
+      description: 'Distributed Observer Design in the Application to Vehicle Platoons',
+    },
+    {
+      title: 'Research visit',
+      institution: 'FAAR PRONERGY',
+      period: 'Jun 10–11, 2026',
+      invitedBy: 'Adil ALIF',
+      description: 'Estimator Validation by Real-World Driving Tests',
+    },
+    {
+      title: 'Participation and presentation',
+      institution: '3rd Annual SAGIP Congress',
+      location: '“La Fonderie” campus, Mulhouse, France',
+      period: 'May 21–23, 2025',
+      organizer: 'Université de Haute-Alsace',
+      description: 'Distributed High-Gain/LMI Observer for Nonlinear System with Application to Vehicle',
+    },
     {
       title: 'Invited talk',
       institution: 'University of Groningen · Faculty of Science and Engineering',

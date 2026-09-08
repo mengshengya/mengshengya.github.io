@@ -39,6 +39,8 @@
 
 当前已根据用户简历和照片实现首页，包含个人简介、研究方向、6 篇代表论文、4 篇准备中或已投稿稿件、教育与学术访问、学术服务、奖励和照片。简历与照片原件分别保留在 `materials/cv/`、`materials/media/images/`。
 
+2026-09-08 已根据用户补充的截图将 Academic exchanges and visits 更新为四项，当前单位改为 `CRAN, University of Lorraine`，本地检查、构建及四种屏幕宽度验证通过。资料依据与处理约定见 [首页内容来源](content-source.md)，线上发布状态见 [部署记录](deployment.md)。
+
 Astro 本地开发、检查、构建和预览命令已配置，运行要求 Node.js `>=22.12.0`。首次安装使用 `npm ci --cache tmp/npm-cache`；调整依赖使用 `npm install --cache tmp/npm-cache`，并保留更新后的锁文件。
 
 网站已于 2026-09-08 首次上线至 [mengshengya.github.io](https://mengshengya.github.io/)，公开仓库为 [mengshengya/mengshengya.github.io](https://github.com/mengshengya/mengshengya.github.io)。`main` 推送通过 GitHub Actions 完成检查、构建并仅发布 `dist/`；首次部署及线上页面、布局和资源验证已完成，详见 [运行与部署记录](deployment.md)。后续可继续补充项目与媒体、完善独立页面。阶段完成后同步更新本节与根目录 README，检查结果只记录实际执行情况。
