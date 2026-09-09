@@ -117,7 +117,11 @@ npm.cmd run preview
 - Publications 完整展示简历中的 14 篇期刊论文（含 4 篇带状态稿件）和 7 篇会议论文，分组数量由数据自动计算。
 - CEP 项目页改为与首页 “String-stable vehicle platoons” 相同的配图。
 - `npm run check` 通过（0 errors、0 warnings、0 hints），`npm run build` 成功生成 2 个页面；已生成桌面首页、手机样式首页和桌面项目页的本地截图用于检查。
-- 用户已完成本地确认；以下发布记录将在 GitHub Pages 上线验证后补充。
+- 用户完成本地确认后发布；网站源码提交为 [`5bb85212b04812a85401b146e55af91a9379a6ce`](https://github.com/mengshengya/mengshengya.github.io/commit/5bb85212b04812a85401b146e55af91a9379a6ce)。
+- [GitHub Actions 运行 34339005909](https://github.com/mengshengya/mengshengya.github.io/actions/runs/34339005909) 最终为 `success`，完成自动构建与 Pages 部署。
+- 正式首页与 CEP 项目页均返回 HTTP 200；线上 HTML 已确认中文名、`Journal articles (14)`、`Conference papers (7)`、页眉图标移除及项目页共用图片全部生效。
+- 共用 WebP、作者稿 PDF 和两段 MP4 视频均返回 HTTP 200，Content-Type 分别为 `image/webp`、`application/pdf` 和 `video/mp4`。
+- 已查看正式站点 1440 × 1000 桌面首页、500 × 900 窄屏首页及 1440 × 1000 项目页截图，布局与本地确认版本一致；截图保存在 `tmp/previews/*-blue-live-*`，不提交。
 
 ## 更新与回退
 
