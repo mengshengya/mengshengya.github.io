@@ -1,4 +1,5 @@
 import { cep2026 } from './cep2026';
+import { ifacWc2026 } from './ifacWc2026';
 
 export interface ResearchInterest {
   title: string;
@@ -240,12 +241,13 @@ export const profile: Profile = {
       type: 'Conference',
     },
     {
-      title: 'Resilient Trust–Aware Distributed Observer Design for Connected Vehicle Platoons',
+      title: ifacWc2026.title,
       authors: 'Q. H. Nguyen, S. Meng, M. Haddad, H. Rafaralahy, A. Zemouche',
       venue: '23rd IFAC World Congress (IFAC WC 2026)',
       details: 'Busan · August 2026',
       year: 2026,
       type: 'Conference',
+      projectPath: ifacWc2026.path,
     },
     {
       title: 'Joint Design of Matrix-Weighted Communication Topologies and Distributed Controllers for Vehicular Platoons: An LMI-Based String Stability Approach',

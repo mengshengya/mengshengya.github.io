@@ -123,6 +123,25 @@ npm.cmd run preview
 - 共用 WebP、作者稿 PDF 和两段 MP4 视频均返回 HTTP 200，Content-Type 分别为 `image/webp`、`application/pdf` 和 `video/mp4`。
 - 已查看正式站点 1440 × 1000 桌面首页、500 × 900 窄屏首页及 1440 × 1000 项目页截图，布局与本地确认版本一致；截图保存在 `tmp/previews/*-blue-live-*`，不提交。
 
+## 2026-09-09 CEP 论文 PDF 与技术路线图本地更新
+
+- 用户新提供的 11 页 CEP 2026 论文已归档至 `materials/publications/cep-2026/representative-publication.pdf`，网站下载副本更新至原有稳定 URL `/files/papers/cep-2026/author-manuscript.pdf`。
+- 原 14 页作者稿 `materials/publications/cep-2026/cas-dc-template.pdf` 已按用户后续明确要求删除。
+- 用户提供的 `CEP_route.png` 已归档并作为项目页新封面，英文图注为 **Technical roadmap**；首页项目卡片图片保持不变。
+- 首页 Research 区改为 **Featured research** 项目卡片网格，移除原来的三张研究兴趣卡片；参考 Liming Zheng 首页 Selected research，采用开放式分区及“顶部媒体、下方完整信息”的纵向圆角卡片。`CEP · 2026` 适当放大，并在卡片底部突出四项主要创新关键词。
+- 新增 IFAC WC 2026 研究卡片，标题为 **Resilient Trust-Aware Distributed Observer Design for Connected Vehicle Platoons**；图片区域暂时留白，尚未提供的简介、入口和创新点统一以 `？？？？` 占位。
+- 正式站点配置下 `npm run check` 与 `npm run build` 均成功；原件、公开副本和构建副本哈希一致。
+- Featured research 与其他首页同级分区标题统一调整为比姓名低一档的响应式字号。已查看 1440 × 1500 桌面和 500 × 1900 窄屏预览：双卡片网格、放大的期刊/会议与年份、CEP 四个创新点标签及 IFAC WC 留白图片区均显示正常，窄屏自动切换为单列且无横向溢出。
+- 本次变更尚未提交、推送或部署；正式网站仍提供上一次发布的 PDF 和项目页封面。
+
+## 2026-09-09 IFAC WC 2026 项目页本地更新
+
+- 根据用户提供的手稿完善首页 IFAC WC 2026 研究卡片，并新增 `/research/ifac-wc-2026/` 项目页；页面覆盖信任评估、自适应融合权重、本地观测器锚点、有限窗口回滚、验证结果与适用边界。
+- 首页卡片媒体改为回滚演示视频；项目页使用同一视频，并展示用户提供的 trust-aware cooperative state estimation 实验系统图。原始 HEVC 视频保留在内部归档，公开副本转为无音轨 H.264 以兼容浏览器，并从约 104 MB 缩减至约 18.7 MB。
+- 三个已使用文件均已从 `materials/inbox/` 移至 IFAC WC 2026 对应归档目录并规范命名。视频和图片另有 `public/` 副本；手稿 PDF 只保留在被 Git 忽略的 `materials/publications/`，没有公开副本或网站链接。
+- `npm run check` 通过（0 errors、0 warnings、0 hints），`npm run build` 成功生成 3 个页面。Chrome 已确认首页 H.264 视频为 1920 × 1440、约 37.38 秒，能够自动播放且无媒体错误；桌面首页、桌面项目页和 500 px 窄屏项目页预览均无横向溢出。
+- 本次变更尚未提交、推送或部署。
+
 ## 更新与回退
 
 后续内容修改在本地检查后提交并推送 `main`，由同一工作流重新发布。需要撤销已发布修改时，为要撤销的提交创建反向提交并推送：

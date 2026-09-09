@@ -1,12 +1,13 @@
 # CEP 2026 材料与网站展示
 
-项目页：`/research/cep-2026/`。首页研究方向下方设有项目卡片，Selected publications 中的 CEP 2026 条目也链接至项目页及作者稿。
+项目页：`/research/cep-2026/`。首页 Featured research 区直接展示项目卡片，Publications 中的 CEP 2026 条目也链接至项目页及论文 PDF。
 
 ## 内容来源
 
-- `materials/publications/cep-2026/cas-dc-template.pdf`：14 页，含 1 页 Highlights 和正文 13 页。正文标题、作者、摘要及第 2–3 节用于项目介绍；第 4 节用于 QLabs 场景说明；正文第 12 页 Figure 8、Figure 9 用于起停结果图。文件保留作者稿格式，网站下载按钮明确标为 **Author manuscript PDF**。
+- `materials/publications/cep-2026/cas-dc-template.pdf`：曾用于项目介绍、QLabs 场景说明和结果图核对的 14 页作者稿；已按用户 2026-09-09 的明确要求删除。相关内容仍可由新提供的正式论文及现有结果图核对。
+- `materials/publications/cep-2026/representative-publication.pdf`：用户 2026-09-09 新提供的 11 页论文 PDF，由 `materials/inbox/RepresentativePulication_shengya_cep.pdf` 归档并使用小写英文文件名。元数据给出 Control Engineering Practice 173 (2026) 107008 与 DOI `10.1016/j.conengprac.2026.107008`；网站当前的 **Author manuscript PDF** 链接按用户要求改为提供此文件的逐字节副本。
 - `materials/projects/cep-2026/main.pdf`：同一题目的 26 页报告，包含并排演讲备注。本轮用于核对内容并归档，未作为公开幻灯片直接发布。
-- 卷号 173、文章号 107008、年份 2026 来自用户此前提供的简历；本次作者稿未提供 DOI，不猜测或添加 DOI、代码仓库和出版社地址。
+- 卷号 173、文章号 107008 和年份 2026 最初来自用户简历；新提供论文的元数据再次确认这些信息并给出上述 DOI。网站未额外添加代码仓库地址。
 - 车辆队列验证是 QLabs 高保真仿真。正文第 10 页 Remark 1 提及在实物 QCar2 与数字孪生上检查部分系统组件，未报告实物多车编队实验；网站保留这一范围区别。
 - 起停场景中的领航车加速度偏离恒速设计假设，论文报告较大观测瞬态及加速度振荡沿车队衰减。网站未将这些仿真结果扩写为任意工况下的实车保证。
 
@@ -14,9 +15,11 @@
 
 | 原始材料 | 网站位置 / 用途 |
 | --- | --- |
-| `materials/publications/cep-2026/cas-dc-template.pdf` | `public/files/papers/cep-2026/author-manuscript.pdf`，逐字节保留的作者稿副本 |
+| `materials/publications/cep-2026/cas-dc-template.pdf` | 已按用户要求删除；不再保留或发布 |
+| `materials/publications/cep-2026/representative-publication.pdf` | `public/files/papers/cep-2026/author-manuscript.pdf`，逐字节一致的网站下载副本；保持既有 URL，页面链接无需分散维护 |
 | `materials/projects/cep-2026/fig/platoon_4cars.PNG` | `public/images/research/cep-2026/platoon.png`，保留的项目环境图副本，当前页面未引用 |
-| `materials/inbox/Qcar_application.png` | `public/images/research/cep-2026/qcar-application.webp`，首页研究卡片与项目页共用配图 |
+| `materials/inbox/Qcar_application.png` | `public/images/research/cep-2026/qcar-application.webp`，首页研究卡片配图 |
+| `materials/projects/cep-2026/fig/technical-roadmap.png` | 由 `materials/inbox/CEP_route.png` 归档；`public/images/research/cep-2026/technical-roadmap.png` 为项目页封面副本 |
 | `materials/media/video/cep-2026/QLab_4QCar_ObsCtr.mp4` | `public/media/video/cep-2026/smooth-road.mp4`，平路仿真演示 |
 | `materials/media/video/cep-2026/QLab_4QCar_ObsCtr_wave_road.mp4` | `public/media/video/cep-2026/wave-road.mp4`，波浪路面仿真演示 |
 | 两段原视频各自第 30 秒画面 | `public/media/posters/cep-2026/`，真实视频封面 |
@@ -63,6 +66,22 @@ FFmpeg 安装在忽略的 `tmp/media-tools/` 中，未新增网站运行依赖�
 
 - `npm run check`：0 errors、0 warnings、0 hints；正式站点配置下 `npm run build` 成功生成两个页面。
 - 本地 Chrome 在 1440、768、390、320 px 视口下确认新图成功加载、保持自然比例、没有横向溢出；已查看桌面与手机卡片截图。
-- 首页项目链接正常；自 2026-09-09 起项目页与首页共用 `qcar-application.webp`。原始 PNG 与未使用的 `platoon.png` 副本均保留。
+- 首页项目链接正常；该次发布后项目页与首页曾共用 `qcar-application.webp`，后续项目页封面替换见下方记录。原始 PNG 与未使用的 `platoon.png` 副本均保留。
 - 本地截图位于 `tmp/previews/cep-2026/qcar-cover-local-*`，浏览器检查日志位于 `tmp/logs/qcar-cover-local.json`；线上结果见 [部署记录](deployment.md)。
 - 同日已完成自动发布，正式主页在相同四种宽度下验证通过；新 WebP 返回 HTTP 200，尺寸与文件大小一致，完整显示并可进入项目页。线上截图位于 `tmp/previews/cep-2026/qcar-cover-live-*`，日志位于 `tmp/logs/qcar-cover-live.json`。
+
+## 论文 PDF 替换验证（2026-09-09）
+
+- 新 PDF 共 11 页、7,259,938 bytes，无加密、表单或 JavaScript；已渲染检查首页和末页，未见裁切、重叠或无法识别的字符。
+- 归档原件、`public/` 下载副本及 `dist/` 构建副本的 SHA-256 均为 `31C7E31520249D48BAAC54560611354D146D3F83211E2DF3CDCA284809CA4EF7`。
+- `src/data/cep2026.ts` 继续集中维护稳定 URL `/files/papers/cep-2026/author-manuscript.pdf`；首页和项目页两处链接均自动使用该 URL，无需修改页面模板。
+- `npm run check`：0 errors、0 warnings、0 hints；正式站点配置下 `npm run build` 成功生成两个页面，构建产物中的 PDF 元数据和 11 页页数正确。
+- 本次仅完成本地替换与验证，尚未提交、推送或部署。
+
+## 项目页技术路线图替换（2026-09-09）
+
+- 用户提供的 `CEP_route.png` 已从收件目录归档为 `materials/projects/cep-2026/fig/technical-roadmap.png`；网站使用逐字节一致的 `public/images/research/cep-2026/technical-roadmap.png` 副本。
+- 图片为 929 × 427 px，项目页封面图和 HTML 尺寸声明同步更新，英文图注为 **Technical roadmap**；首页研究卡片继续使用 `qcar-application.webp`。
+- 原 14 页 `cas-dc-template.pdf` 已按用户明确要求删除；新归档的 11 页 `representative-publication.pdf` 及其网站副本不受影响。
+- `npm run check`：0 errors、0 warnings、0 hints；正式站点配置下 `npm run build` 成功生成两个页面。已查看 1440 × 1000 桌面与 500 × 900 窄屏项目页截图，图片、图注和后续内容布局正常。
+- 本次变更尚未提交、推送或部署。

@@ -37,7 +37,7 @@
 
 ## 当前状态与下一步
 
-当前已根据用户简历和照片实现首页，包含个人简介、卡片式研究方向、14 篇期刊论文（含 4 篇准备中或已投稿稿件）、7 篇会议论文、教育与学术访问、学术服务、奖励和照片。简历与照片原件分别保留在 `materials/cv/`、`materials/media/images/`。
+当前已根据用户简历和照片实现首页，包含个人简介、Featured research 项目卡片网格、14 篇期刊论文（含 4 篇准备中或已投稿稿件）、7 篇会议论文、教育与学术访问、学术服务、奖励和照片。Featured research 已包含 CEP 2026 与 IFAC WC 2026 两个独立项目页；后者使用视频卡片，但不公开用户提供的手稿 PDF。三个研究方向仍在个人资料侧栏以简短列表呈现。简历与照片原件分别保留在 `materials/cv/`、`materials/media/images/`。
 
 2026-09-08 已根据用户补充的截图将 Academic exchanges and visits 更新为四项，当前单位改为 `CRAN, University of Lorraine`，本地检查、构建与自动发布成功，正式首页在四种屏幕宽度下验证通过。资料依据与处理约定见 [首页内容来源](content-source.md)，线上发布结果见 [部署记录](deployment.md)。
 

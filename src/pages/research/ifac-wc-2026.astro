@@ -1,0 +1,95 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Icon from '../../components/Icon.astro';
+import { ifacWc2026 as project, ifacWc2026Citation } from '../../data/ifacWc2026';
+import { profile } from '../../data/profile';
+import { Content } from '../../content/projects/ifac-wc-2026.md';
+import '../../styles/project.css';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+
+<BaseLayout title={`IFAC WC 2026 | ${project.title}`} description={project.summary}>
+  <header class="site-header">
+    <div class="header-inner container project-header">
+      <a class="brand" href={`${base}/`}><span>{profile.name}</span></a>
+      <a class="text-link" href={`${base}/#research`}><span aria-hidden="true">←</span> Back to research</a>
+    </div>
+  </header>
+
+  <main id="main-content" class="project-container">
+    <section class="project-hero" aria-labelledby="project-title">
+      <p class="eyebrow"><span></span>{project.venue} · {project.year}</p>
+      <h1 id="project-title">{project.title}</h1>
+      <p class="project-authors">{project.authors.map((author, index) => <>{index > 0 && <span class="author-separator"> · </span>}{author === profile.name ? <a href={`${base}/`}>{author}</a> : author}</>)}</p>
+      <p class="project-affiliation">{project.affiliation}</p>
+      <p class="project-journal">{project.location} · {project.date}</p>
+      <div class="project-actions">
+        <a class="button button-primary" href="#demonstration">Watch rollback demonstration <span aria-hidden="true">↓</span></a>
+        <a class="button button-outline" href="#system-scheme">View experimental scheme <span aria-hidden="true">↓</span></a>
+        <a class="text-link" href="#citation">Cite this work</a>
+      </div>
+    </section>
+
+    <figure id="system-scheme" class="project-cover">
+      <a href={`${base}${project.cover.source}`} target="_blank" rel="noopener noreferrer" aria-label="Open the experimental scheme at full size">
+        <img src={`${base}${project.cover.source}`} alt={project.cover.alt} width={project.cover.width} height={project.cover.height} fetchpriority="high" />
+      </a>
+      <figcaption>Trust-aware cooperative state estimation: experimental scheme. <a href={`${base}${project.cover.source}`} target="_blank" rel="noopener noreferrer">View full size <span aria-hidden="true">↗</span></a></figcaption>
+    </figure>
+
+    <section class="section-panel project-overview" aria-label="Research overview">
+      <p class="project-summary">{project.summary}</p>
+      <div class="project-prose"><Content /></div>
+    </section>
+
+    <section id="demonstration" class="project-section" aria-labelledby="demonstration-title">
+      <div class="project-section-heading"><p class="small-label">Platform recording</p><h2 id="demonstration-title">Rollback after a delayed trust decision</h2><p>The recording illustrates the finite-window replay mechanism used to revise recent observer updates after an unreliable source is identified.</p></div>
+      <article class="demo-card" aria-labelledby={`${project.video.id}-title`}>
+        <div class="demo-heading"><span class="section-number" aria-hidden="true">01</span><h3 id={`${project.video.id}-title`}>{project.video.title}</h3><span class="demo-label">QCar/LIMO platform</span></div>
+        <div class="video-frame">
+          <video class="video-four-three" controls playsinline preload="metadata" width={project.video.width} height={project.video.height} aria-labelledby={`${project.video.id}-title`} aria-describedby={`${project.video.id}-description`}>
+            <source src={`${base}${project.video.source}`} type="video/mp4" />
+            Your browser does not support embedded video. <a href={`${base}${project.video.source}`}>Download the MP4 recording.</a>
+          </video>
+        </div>
+        <div class="demo-caption"><p id={`${project.video.id}-description`}>{project.video.description}</p><a href={`${base}${project.video.source}`} download>Download video <Icon name="arrow" size={14} /></a></div>
+      </article>
+    </section>
+
+    <section id="results" class="section-panel project-results" aria-labelledby="results-title">
+      <div class="project-section-heading"><p class="small-label">Validation</p><h2 id="results-title">What the reported tests show</h2><p>The findings below describe the manuscript's tested scenarios and should be read within the stated assumptions and validation scope.</p></div>
+      <div class="finding-grid">
+        {project.findings.map((finding) => (
+          <article><h3>{finding.title}</h3><p>{finding.description}</p></article>
+        ))}
+      </div>
+    </section>
+
+    <section id="citation" class="section-panel project-citation" aria-labelledby="citation-title">
+      <div class="citation-heading"><h2 id="citation-title">Citation</h2><button class="copy-citation" type="button" hidden>Copy BibTeX</button></div>
+      <p>{project.authors.join(', ')}. {project.title}. <em>{project.venue}</em>, {project.location}, {project.date}.</p>
+      <pre><code id="bibtex">{ifacWc2026Citation}</code></pre>
+      <p class="copy-status" role="status" aria-live="polite"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer container"><p>© {new Date().getFullYear()} {profile.name}</p><a href={`${base}/#publications`}>All publications <Icon name="arrow" size={15} /></a></footer>
+
+  <script>
+    const button = document.querySelector<HTMLButtonElement>('.copy-citation');
+    const citation = document.getElementById('bibtex');
+    const status = document.querySelector<HTMLElement>('.copy-status');
+    if (button && citation && status && navigator.clipboard && window.isSecureContext) {
+      button.hidden = false;
+      button.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(citation.textContent ?? '');
+          status.textContent = 'BibTeX copied to clipboard.';
+        } catch {
+          status.textContent = 'Please select and copy the BibTeX text above.';
+        }
+      });
+    }
+  </script>
+</BaseLayout>

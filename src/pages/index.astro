@@ -66,20 +66,8 @@ const publicationCounts = {
         </div>
       </section>
 
-      <section id="research" class="section-panel" aria-labelledby="research-heading">
-        <div class="section-heading"><span class="section-number" aria-hidden="true">01</span><h2 id="research-heading">Research interests</h2></div>
-        <div class="research-grid">
-          {profile.researchInterests.map((interest, index) => (
-            <article class="research-item">
-              <span class="research-marker" aria-hidden="true">{String(index + 1).padStart(2, '0')} /</span>
-              <h3>{interest.title}</h3>
-              <p>{interest.description}</p>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section class="section-panel" aria-label="Featured research project">
+      <section id="research" class="section-panel featured-research-section" aria-labelledby="research-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">01</span><h2 id="research-heading">Featured research</h2></div>
         <FeaturedProject />
       </section>
 
