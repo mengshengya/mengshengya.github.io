@@ -4,7 +4,7 @@
 
 - 项目用于建设用户的个人网站，参考来源与已核实的技术栈见 `docs/reference.md`。
 - 当前已实现 Astro + TypeScript 首页及本地开发、检查、构建和预览命令；页面入口为 `src/pages/index.astro`，公开资料集中在 `src/data/profile.ts`。
-- 首页包含用户简历中的研究方向、6 篇代表论文、4 篇准备中或已投稿稿件、教育、4 项学术交流与访问、学术服务、奖励和用户照片。当前单位依据用户更正为 `CRAN, University of Lorraine`，资料依据见 `docs/content-source.md`。论文与稿件状态应按资料区分维护。
+- 首页包含用户简历中的研究方向、14 篇期刊论文（含 4 篇准备中或已投稿稿件）、7 篇会议论文、教育、4 项学术交流与访问、学术服务、奖励和用户照片。当前单位依据用户更正为 `CRAN, University of Lorraine`，资料依据见 `docs/content-source.md`。论文与稿件状态应按资料区分维护。
 - 已接入 CEP 2026 项目页 `/research/cep-2026/`、两段视频、作者稿及结果图。项目数据在 `src/data/cep2026.ts`，长篇介绍在 `src/content/projects/cep-2026.md`；材料对应与验证范围见 `docs/cep-2026-materials.md`。
 - 运行环境要求 Node.js `>=22.12.0`；使用 npm 与 `package-lock.json`。Git 仓库为 `mengshengya/mengshengya.github.io`，`main` 推送通过 GitHub Actions 仅发布 `dist/` 到 `https://mengshengya.github.io/`。2026-09-08 首次上线成功，首页、CEP 项目页、桌面与手机布局、图片、视频启动播放和 PDF 响应已在线验证；发布记录见 `docs/deployment.md`。
 - 随用户后续指示推进页面、素材处理、构建和部署；实施后同步更新说明，避免状态记录过期。

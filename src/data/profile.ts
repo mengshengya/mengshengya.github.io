@@ -51,6 +51,7 @@ export interface Award {
 
 export interface Profile {
   name: string;
+  nameZh: string;
   role: string;
   affiliation: string;
   location: string;
@@ -70,6 +71,7 @@ export interface Profile {
 // Personal facts come from the supplied CV and user updates. See docs/content-source.md.
 export const profile: Profile = {
   name: 'Shengya Meng',
+  nameZh: '孟圣亚',
   role: 'PhD Candidate in Automatic Control',
   affiliation: 'CRAN, University of Lorraine',
   location: 'France',
@@ -172,6 +174,94 @@ export const profile: Profile = {
       details: 'Vol. 360, no. 16, pp. 11397–11413 · November 2023',
       year: 2023,
       type: 'Journal',
+    },
+    {
+      title: 'Robust Adaptive Fault-Tolerant Asymptotic Tracking Control for Magnetic Levitation System Based on Nussbaum Gain and Neural Network',
+      authors: 'S. Meng, F. Meng, W. Yang, Q. Li',
+      venue: 'International Journal of Control, Automation and Systems',
+      details: 'Vol. 22, no. 1, pp. 163–173 · January 2024',
+      year: 2024,
+      type: 'Journal',
+    },
+    {
+      title: 'Robust Adaptive Fault-Tolerant Asymptotic Tracking Control for Magnetic Levitation System Based on Nussbaum Gain and Neural Network',
+      authors: 'S. Meng, S. Li, H. Chi, F. Meng, A. Pang',
+      venue: 'Entropy',
+      details: 'Vol. 24, no. 3, article 420 · March 2022',
+      year: 2022,
+      type: 'Journal',
+    },
+    {
+      title: 'Robust Controller Design for Multi-Input Multi-Output Systems Using Coefficient Diagram Method',
+      authors: 'K. Liu, F. Meng, S. Meng, C. Wang',
+      venue: 'Entropy',
+      details: 'Vol. 23, no. 9, article 1180 · September 2021',
+      year: 2021,
+      type: 'Journal',
+    },
+    {
+      title: 'Robust H-Inf Phase Control for Flexible System With Weak Damping',
+      authors: 'A. Pang, S. Meng, Z. He, J. Zhang',
+      venue: 'IEEE Access',
+      details: 'Vol. 8, pp. 195733–195740',
+      year: 2020,
+      type: 'Journal',
+    },
+    {
+      title: 'Tracking Control of Magnetic Levitation System Using Model-Free RBF Neural Network Design',
+      authors: 'W. Yang, F. Meng, S. Meng, M. Sun, A. Pang',
+      venue: 'IEEE Access',
+      details: 'Vol. 8, pp. 204563–204572',
+      year: 2020,
+      type: 'Journal',
+    },
+    {
+      title: 'Linearization Method of Nonlinear Magnetic Levitation System',
+      authors: 'D. Wang, F. Meng, S. Meng',
+      venue: 'Mathematical Problems in Engineering',
+      details: 'Vol. 2020, pp. 1–5',
+      year: 2020,
+      type: 'Journal',
+    },
+    {
+      title: 'Design of Stable Controller for Flexible Solar Panel by H∞ Loop-Shaping Method',
+      authors: 'D. Wang, F. Meng, S. Meng, A. Pang',
+      venue: 'Complexity',
+      details: 'Vol. 2020, pp. 1–5',
+      year: 2020,
+      type: 'Journal',
+    },
+    {
+      title: 'Distributed High-Gain Observer Design of Interconnected Nonlinear Systems for Vehicle Platoon Application',
+      authors: 'Q. Li, S. Meng, F. Meng, Cèdric Delattre, A. Zemouche',
+      venue: '23rd IFAC World Congress (IFAC WC 2026)',
+      details: 'Busan · August 2026',
+      year: 2026,
+      type: 'Conference',
+    },
+    {
+      title: 'Resilient Trust–Aware Distributed Observer Design for Connected Vehicle Platoons',
+      authors: 'Q. H. Nguyen, S. Meng, M. Haddad, H. Rafaralahy, A. Zemouche',
+      venue: '23rd IFAC World Congress (IFAC WC 2026)',
+      details: 'Busan · August 2026',
+      year: 2026,
+      type: 'Conference',
+    },
+    {
+      title: 'Joint Design of Matrix-Weighted Communication Topologies and Distributed Controllers for Vehicular Platoons: An LMI-Based String Stability Approach',
+      authors: 'S. Meng, M. Alma, A. Zemouche',
+      venue: '34th Mediterranean Conference on Control and Automation (MED 2026)',
+      details: 'Ancona · June 2026',
+      year: 2026,
+      type: 'Conference',
+    },
+    {
+      title: 'Distributed High-Gain Observer for Nonlinear Connected Autonomous Vehicle',
+      authors: 'S. Meng, Q. H. Nguyen, A. Zemouche, F. Meng, F. Zhang',
+      venue: 'American Control Conference (ACC 2025)',
+      details: 'America · July 2025',
+      year: 2025,
+      type: 'Conference',
     },
   ],
   manuscripts: [

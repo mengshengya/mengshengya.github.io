@@ -10,8 +10,8 @@ export const cep2026 = {
   volume: '173',
   article: '107008',
   summary: 'A joint design of distributed observers and controllers for vehicle platoons. Local measurements and neighbor communication support platoon-level estimation, while a weighted H∞ objective combines estimation robustness and string stability. Evaluated in QLabs with four QCar2 digital twins.',
-  cover: '/images/research/cep-2026/platoon.png',
-  coverAlt: 'Four simulated QCar2 vehicles forming a platoon on a straight road in Quanser Interactive Labs.',
+  cover: '/images/research/cep-2026/qcar-application.webp',
+  coverAlt: 'String-stable vehicle platoon control architecture and QCar application overview.',
   featuredImage: {
     source: '/images/research/cep-2026/qcar-application.webp',
     alt: 'QCar2 application overview showing communication links among four simulated vehicles and an inset of a physical QCar2.',

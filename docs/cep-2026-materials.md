@@ -15,8 +15,8 @@
 | 原始材料 | 网站位置 / 用途 |
 | --- | --- |
 | `materials/publications/cep-2026/cas-dc-template.pdf` | `public/files/papers/cep-2026/author-manuscript.pdf`，逐字节保留的作者稿副本 |
-| `materials/projects/cep-2026/fig/platoon_4cars.PNG` | `public/images/research/cep-2026/platoon.png`，项目页环境图 |
-| `materials/inbox/Qcar_application.png` | `public/images/research/cep-2026/qcar-application.webp`，用户 2026-09-08 指定的首页研究卡片配图 |
+| `materials/projects/cep-2026/fig/platoon_4cars.PNG` | `public/images/research/cep-2026/platoon.png`，保留的项目环境图副本，当前页面未引用 |
+| `materials/inbox/Qcar_application.png` | `public/images/research/cep-2026/qcar-application.webp`，首页研究卡片与项目页共用配图 |
 | `materials/media/video/cep-2026/QLab_4QCar_ObsCtr.mp4` | `public/media/video/cep-2026/smooth-road.mp4`，平路仿真演示 |
 | `materials/media/video/cep-2026/QLab_4QCar_ObsCtr_wave_road.mp4` | `public/media/video/cep-2026/wave-road.mp4`，波浪路面仿真演示 |
 | 两段原视频各自第 30 秒画面 | `public/media/posters/cep-2026/`，真实视频封面 |
@@ -63,6 +63,6 @@ FFmpeg 安装在忽略的 `tmp/media-tools/` 中，未新增网站运行依赖�
 
 - `npm run check`：0 errors、0 warnings、0 hints；正式站点配置下 `npm run build` 成功生成两个页面。
 - 本地 Chrome 在 1440、768、390、320 px 视口下确认新图成功加载、保持自然比例、没有横向溢出；已查看桌面与手机卡片截图。
-- 首页项目链接正常，项目页环境图仍使用 `platoon.png`；无浏览器错误。原始 PNG 保留，网站只发布生成的 WebP 副本。
+- 首页项目链接正常；自 2026-09-09 起项目页与首页共用 `qcar-application.webp`。原始 PNG 与未使用的 `platoon.png` 副本均保留。
 - 本地截图位于 `tmp/previews/cep-2026/qcar-cover-local-*`，浏览器检查日志位于 `tmp/logs/qcar-cover-local.json`；线上结果见 [部署记录](deployment.md)。
 - 同日已完成自动发布，正式主页在相同四种宽度下验证通过；新 WebP 返回 HTTP 200，尺寸与文件大小一致，完整显示并可进入项目页。线上截图位于 `tmp/previews/cep-2026/qcar-cover-live-*`，日志位于 `tmp/logs/qcar-cover-live.json`。

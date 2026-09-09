@@ -2,7 +2,7 @@
 
 用于共同建设和维护个人网站，风格与栏目参考 [Liming-Zheng 的网站项目](https://github.com/Liming-Zheng/Liming-Zheng.github.io)。
 
-已根据用户提供的英文简历和照片实现 Astro + TypeScript 首页，展示个人简介、研究方向、6 篇代表论文、4 篇准备中或已投稿稿件、教育与学术访问、学术服务、奖励和个人照片。页面入口为 `src/pages/index.astro`，公开内容集中维护在 `src/data/profile.ts`。
+已根据用户提供的英文简历和照片实现 Astro + TypeScript 首页，展示个人简介、研究方向、14 篇期刊论文（含 4 篇准备中或已投稿稿件）、7 篇会议论文、教育与学术访问、学术服务、奖励和个人照片。页面入口为 `src/pages/index.astro`，公开内容集中维护在 `src/data/profile.ts`。
 
 2026-09-08 根据用户补充截图将学术交流与访问扩展为四项，并将当前单位更新为 `CRAN, University of Lorraine`。本地检查、构建及自动发布成功，正式首页在 1440、768、390、320 像素视口下验证通过；内容来源见 [首页内容维护记录](docs/content-source.md)，本次线上结果见 [部署记录](docs/deployment.md)。
 

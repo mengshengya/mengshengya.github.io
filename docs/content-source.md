@@ -13,8 +13,8 @@
 | LinkedIn | 各页页脚 | 使用简历可见的链接文本并补上 `https://` 协议；PDF 内部链接注释错误地重复了域名和 `/in/`，不复制这一格式错误 |
 | 个人简介、三个研究方向 | 第 1 页及第 1–3 页论文题目 | 归纳分布式观测器、非线性系统、车辆应用，以及论文涉及的通信时延、传感器故障和串稳定性；未增加未提供的技能或任职 |
 | 三段教育经历与导师 | 第 1 页 Education | 保留机构、专业、年份和学位论文；未将博士在读误写为已获学位 |
-| Selected publications | 第 2 页期刊 [5]、[6]、[7]；第 3 页会议 [1]、[5]、[7] | 选取与目前研究相关的 6 篇，区分期刊与会议，按年份降序排列；没有添加 DOI、论文 PDF 或项目链接 |
-| Manuscripts | 第 1 页期刊 [1]–[4] | 单独保留原文 `Prepared` / `Submitted` 状态，不计为已发表成果 |
+| Journal articles (14) | 第 1–2 页 International Journal Papers [1]–[14] | 完整展示简历所列条目；[1]–[4] 保留原文 `Prepared` / `Submitted` 状态，其余条目按年份降序排列 |
+| Conference papers (7) | 第 3 页 International Conference Papers [1]–[7] | 完整展示简历所列条目并按年份降序排列；未增加简历没有提供的链接或录用状态 |
 | 审稿服务 | 第 3–4 页 Professional Activities | 保留列出的期刊和会议，将 ACC 2024 / 2025 合并显示 |
 | 四项学术交流与访问 | 简历第 4 页及用户 2026-09-08 提供的 Academic Exchanges and Visits 截图 | 按时间倒序新增 ArtiSmo、FAAR PRONERGY、SAGIP 三项，保留已有 Groningen 条目，详见下节 |
 | Selected honors | 第 4 页 Awards | 选择 CSC 奖学金、东北大学一等奖学金和校长奖学金、贵州省及贵州大学优秀毕业生、数学竞赛一等奖；重复年份合并 |
@@ -34,10 +34,10 @@
 
 截图未给出 FAAR PRONERGY 访问地点和 SAGIP 个人接待人，网页相应省略。四项归入 Education & experience 下的 Academic exchanges and visits 小节；邀请人、组织者与接待人分别标注。CEP 2026 项目页沿用作者稿中的机构署名。
 
-## 尚未扩展的内容
+## 论文展示说明
 
-- 简历列出 14 个期刊条目，其中 1 个 Prepared、3 个 Submitted，因此没有将“14”展示为已发表论文总数。
-- 第 2 页期刊 [8] 与 [9] 标题完全相同，但作者、期刊和年份不同。本轮未将这两条选入首页，也未擅自更正；扩展完整论文列表前应向用户核对原始引用。
+- Journal articles 标题后的 14 是简历期刊分组的条目总数，其中包含 1 个 Prepared 和 3 个 Submitted；页面以状态标签区分，不将它们误写为已发表成果。
+- 第 2 页期刊 [8] 与 [9] 标题完全相同，但作者、期刊和年份不同；首页按简历原文保留为两个独立条目，未擅自更正。
 - 未为会议论文额外断言口头报告、获奖或录用状态；只呈现简历记载的会议书目信息。
 - 简历没有提供 Google Scholar、ORCID、GitHub 或论文下载链接，因此没有创建这些链接。
 - 已用 `pdfinfo -url` 检查 PDF 链接注释，期刊与会议名称只有颜色格式，未包含文章链接；只找到页脚的联系方式链接。
@@ -54,7 +54,7 @@
 
 CEP 2026 条目已根据新提供的作者稿、报告和演示文件扩展：增加项目页与作者稿链接，元数据集中在 `src/data/cep2026.ts`。本次材料对应关系见 [CEP 2026 材料说明](cep-2026-materials.md)。上文“未添加论文 PDF 或项目链接”记录的是简历整理阶段的状态。
 
-更新论文时同时维护状态、作者顺序、题目、出版信息；只有用户提供或核实的地址才能加入链接。若论文从 Submitted 变为发表，将其从 `manuscripts` 移入 `publications` 并填入对应年份与书目信息。页面标题保持 Selected publications 时，数据只需维护选出的代表作；完整论文库可后续放入 `src/content/publications/`。
+更新论文时同时维护状态、作者顺序、题目、出版信息；只有用户提供或核实的地址才能加入链接。若论文从 Submitted 变为发表，将其从 `manuscripts` 移入 `publications` 并填入对应年份与书目信息。Journal articles 与 Conference papers 的数量由结构化数据自动计算。
 
 ## 初稿验证（2026-09-07）
 
