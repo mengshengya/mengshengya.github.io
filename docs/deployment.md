@@ -145,16 +145,16 @@ npm.cmd run preview
 - 正式首页、CEP 2026 项目页和 IFAC WC 2026 项目页均返回 HTTP 200；IFAC 页面未包含 PDF 链接。IFAC 视频、系统图、CEP PDF 与技术路线图均返回 HTTP 200，Content-Type 正确。
 - 正式首页中的 IFAC 视频已在 Chrome 中验证：可读取 1920 × 1440、约 37.38 秒的元数据，播放时间推进至 6.4 秒且无媒体错误。桌面及 500 px 窄屏 IFAC 项目页截图与本地确认版本一致。
 
-## 2026-09-09 IFAC WC 实验结果本地更新（未部署）
+## 2026-09-10 IFAC WC 实验结果与首页更新（已部署）
 
 - 根据内部手稿补充项目页定量实验结果：五类攻击的检测率与源抑制、三种污染模式的攻击窗口聚合 RMSE、rollback 与相对位姿锚定的误差改善、XY 轨迹 RMSE，以及信任门控控制的检测延迟、攻击源权重、最小间距和间距 RMSE。
 - 新增无 rollback 平台录像，与原有 rollback 录像并列展示。新原件归档为 `materials/projects/ifac-wc-2026/video/trust-no-rollback-original.mp4`；公开副本为无音轨 H.264 文件 `public/media/video/ifac-wc-2026/trust-no-rollback.mp4`。
 - 手稿继续只保留于被 Git 忽略的 `materials/`，未复制到 `public/`，页面未添加手稿下载链接。
 - `npm run check` 通过（0 errors、0 warnings、0 hints），正式站点配置下 `npm run build` 成功生成 3 个页面。Chrome 在 1440 × 1000 与 500 × 900 视口下均未发现横向页面溢出、资源错误或控制台错误；三组实验表格在窄屏中可横向滚动。
 - 两段视频均成功读取 1920 × 1440 元数据，时长约 15.03 秒与 37.38 秒；新无 rollback 视频已验证播放时间能够推进且无媒体错误。页面不存在 PDF 下载链接。
-- 本节记录为本地待确认状态，尚未提交或部署。
+- 网站改动提交为 `bda093f0449b540ca6f2dc170002a7c885a35d73`，已推送到 `main`；GitHub Actions 运行 [34460846027](https://github.com/mengshengya/mengshengya.github.io/actions/runs/34460846027) 成功完成。
 
-## 2026-09-10 首页标题、入口与字号本地更新（未部署）
+## 2026-09-10 首页标题、入口与字号更新（已部署）
 
 - `Publications`、`Education & Experience`、`Academic Service` 与 `Selected Honors & Awards` 均改为和 `Featured research` 相同的卡片外标题结构，各分区内容继续置于独立白色卡片中。
 - Featured research 的 `Details` 紧接项目标题文本末尾，`Paper Link` 紧接会议或期刊年份元信息；按钮统一为深蓝底、白色粗体。
@@ -166,7 +166,7 @@ npm.cmd run preview
 - 首页个人介绍改为第三人称，`My academic journey` 改为 `Academic journey`，联系区标题改为 `Contact.`；其余网站介绍经检索未发现第一人称代词。
 - 论文、教育与访问、学术服务、荣誉奖励的内容字号统一上调：正文主要为 13 px，日期等元信息为 12 px，条目标题为 15–16 px；桌面与窄屏使用同一字号层级。
 - `npm run check` 通过（0 errors、0 warnings、0 hints），`npm run build` 成功生成 3 个页面。Chrome 在 1440 × 1000 与 500 × 900 视口下确认按钮顺序、四个卡片外标题结构及链接正确，计算字号符合设定，无页面横向溢出或浏览器错误。
-- 本节修改仍处于本地待确认状态，尚未提交或部署。
+- 正式首页、CEP 2026 项目页与 IFAC WC 2026 项目页均返回 HTTP 200。正式首页已包含 GitHub、HAL 和四个教育标志资源引用；新增无 rollback 视频、四个教育标志及 CEP 作者稿均返回 HTTP 200，Content-Type 与文件大小正确。
 
 ## 更新与回退
 
