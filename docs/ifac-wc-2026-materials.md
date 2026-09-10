@@ -6,8 +6,8 @@
 
 - 内容依据：用户提供的 15 页手稿 `materials/publications/ifac-wc-2026/trust-aware-observer-manuscript-v7.pdf`。
 - 手稿只用于核对题目、作者、方法、贡献、验证和结论边界；按用户要求不得复制到 `public/`、不得建立公开下载链接、不得随网站部署。
-- 原始视频归档：`materials/projects/ifac-wc-2026/video/trust-rollback-original.mp4`。
-- 网站视频副本：`public/media/video/ifac-wc-2026/trust-rollback.mp4`。原件为 HEVC，网站副本转为无音轨 H.264；原始 1920 × 1440 画幅保留在项目页，首页卡片使用 16:9 居中裁切。
+- 原始视频归档：`materials/projects/ifac-wc-2026/video/trust-rollback-original.mp4` 与 `materials/projects/ifac-wc-2026/video/trust-no-rollback-original.mp4`。
+- 网站视频副本：`public/media/video/ifac-wc-2026/trust-rollback.mp4` 与 `public/media/video/ifac-wc-2026/trust-no-rollback.mp4`。两个原件均为 HEVC，网站副本转为无音轨 H.264；原始 1920 × 1440 画幅保留在项目页，首页卡片继续使用 rollback 视频并作 16:9 居中裁切。
 - 原始实验系统图归档：`materials/projects/ifac-wc-2026/figures/trust-aware-experimental-scheme.png`。
 - 网站图片副本：`public/images/research/ifac-wc-2026/experimental-scheme.png`。
 
@@ -15,5 +15,7 @@
 
 - 首页和项目页概述行为信任、有效性门控、自适应观测器权重、本地观测器锚点及有限窗口回滚。
 - 验证描述限于手稿报告的五车数值仿真与 QCar/LIMO 平台测试。
+- 项目页以无 rollback 与有 rollback 两段平台视频并列对照，并补充手稿中的检测率、源抑制比例、攻击窗口聚合 RMSE、rollback 位置误差改善、XY 轨迹 RMSE、信任门控控制和最小间距结果。
+- 首页 IFAC WC 2026 卡片及 Publications 对应条目使用公开 HAL 记录页 `https://hal.science/hal-05673211/` 作为 `Paper Link`。
 - 页面明确说明结论不等同于普适攻击检测、被拒恶意车辆的精确状态重构、正式字符串稳定性证明或完整二维防碰撞保证。
 - 网站不公开或链接用户提供的 PDF。

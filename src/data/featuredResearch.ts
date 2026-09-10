@@ -22,6 +22,7 @@ export interface FeaturedResearchProject {
   title: string;
   description: string;
   actionLabel: string;
+  paperPath?: string;
   highlights: string[];
   path?: string;
   image?: FeaturedResearchImage;
@@ -35,7 +36,8 @@ export const featuredResearchProjects: FeaturedResearchProject[] = [
     year: cep2026.year,
     title: cep2026.shortTitle,
     description: 'Distributed estimation and control for vehicle platoons, evaluated on smooth and wavy roads in QLabs.',
-    actionLabel: 'Project Details',
+    actionLabel: 'Details',
+    paperPath: cep2026.manuscript,
     highlights: cep2026.highlights,
     path: cep2026.path,
     image: cep2026.featuredImage,
@@ -46,7 +48,8 @@ export const featuredResearchProjects: FeaturedResearchProject[] = [
     year: ifacWc2026.year,
     title: ifacWc2026.title,
     description: ifacWc2026.cardDescription,
-    actionLabel: 'Project Details',
+    actionLabel: 'Details',
+    paperPath: ifacWc2026.paper,
     highlights: ifacWc2026.highlights,
     path: ifacWc2026.path,
     video: {

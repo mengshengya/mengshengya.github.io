@@ -32,7 +32,7 @@
 | 2025-05-21–23 | 3rd Annual SAGIP Congress 参会并报告，Université de Haute-Alsace “La Fonderie” campus，Mulhouse，France | 组织者：Université de Haute-Alsace | Distributed High-Gain/LMI Observer for Nonlinear System with Application to Vehicle |
 | 2024-04-02–05 | University of Groningen · Faculty of Science and Engineering 邀请报告，Groningen，The Netherlands | 接待人：Dr. Saeed Ahmed | Observer Design Method for Nonlinear Generalized Systems with Nonlinear Algebraic Constraints with Applications |
 
-截图未给出 FAAR PRONERGY 访问地点和 SAGIP 个人接待人，网页相应省略。四项归入 Education & experience 下的 Academic exchanges and visits 小节；邀请人、组织者与接待人分别标注。CEP 2026 项目页沿用作者稿中的机构署名。
+截图未给出 FAAR PRONERGY 访问地点和 SAGIP 个人接待人，网页相应省略。四项归入 Education & Experience 下的 Academic exchanges and visits 小节；邀请人、组织者与接待人分别标注。CEP 2026 项目页沿用作者稿中的机构署名。
 
 ## 论文展示说明
 

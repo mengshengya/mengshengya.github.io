@@ -16,6 +16,7 @@ const publicationCounts = {
   Journal: profile.publications.filter((paper) => paper.type === 'Journal').length + profile.manuscripts.length,
   Conference: profile.publications.filter((paper) => paper.type === 'Conference').length,
 };
+const resolveHref = (path: string) => /^https?:\/\//.test(path) ? path : `${base}${path}`;
 ---
 
 <BaseLayout title={`${profile.name} | Automatic Control & State Estimation`} description={`${profile.role} at ${profile.affiliation}. Research in distributed observers, nonlinear systems, and connected autonomous vehicles.`}>
@@ -43,6 +44,7 @@ const publicationCounts = {
           <div class="profile-links">
             <a href={`mailto:${profile.email}`}><Icon name="mail" />Email<Icon name="arrow" size={14} /></a>
             <a href={profile.linkedin} target="_blank" rel="noopener noreferrer"><Icon name="linkedin" />LinkedIn<Icon name="arrow" size={14} /></a>
+            <a href={profile.github} target="_blank" rel="noopener noreferrer"><Icon name="github" />GitHub<Icon name="arrow" size={14} /></a>
           </div>
         </div>
       </div>
@@ -62,102 +64,117 @@ const publicationCounts = {
         </div>
         <div class="hero-links">
           <a class="button button-primary" href="#publications">All publications <Icon name="arrow" size={16} /></a>
-          <a class="text-link" href="#background">My academic journey <span aria-hidden="true">↓</span></a>
+          <a class="text-link" href="#background">Academic journey <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
       <section id="research" class="section-panel featured-research-section" aria-labelledby="research-heading">
-        <div class="section-heading"><span class="section-number" aria-hidden="true">01</span><h2 id="research-heading">Featured research</h2></div>
+        <div class="section-heading"><span class="section-number" aria-hidden="true">01</span><h2 id="research-heading">Featured Research</h2></div>
         <FeaturedProject />
       </section>
 
-      <section id="publications" class="section-panel" aria-labelledby="publications-heading">
+      <section id="publications" class="outside-heading-section publications-section" aria-labelledby="publications-heading">
         <div class="section-heading"><span class="section-number" aria-hidden="true">02</span><h2 id="publications-heading">Publications</h2></div>
-        {publicationGroups.map((type) => (
-          <div class="publication-group">
-            <h3 class="small-label">{type === 'Journal' ? 'Journal articles' : 'Conference papers'} ({publicationCounts[type]})</h3>
-            <ol class="publication-list">
-              {type === 'Journal' && profile.manuscripts.map((paper) => (
-                <li class="publication manuscript-publication">
-                  <span class="status-label">{paper.status}</span>
-                  <div>
-                    <h4>{paper.title}</h4>
-                    <p class="authors">{paper.authors.split(/(S\. Meng)/g).map((part) => part === 'S. Meng' ? <strong>{part}</strong> : part)}</p>
-                    <p class="publication-details">{paper.status === 'Submitted' && 'Submitted to '}{paper.venue}</p>
-                  </div>
-                </li>
-              ))}
-              {profile.publications.filter((paper) => paper.type === type).toSorted((a, b) => b.year - a.year).map((paper) => (
-                <li class="publication">
-                  <span class="publication-year">{paper.year}</span>
-                  <div>
-                    <h4>{paper.projectPath ? <a class="publication-title-link" href={`${base}${paper.projectPath}`}>{paper.title}</a> : paper.title}</h4>
-                    <p class="authors">{paper.authors.split(/(S\. Meng)/g).map((part) => part === 'S. Meng' ? <strong>{part}</strong> : part)}</p>
-                    <p class="venue">{paper.venue}</p>
-                    <p class="publication-details">{paper.details}</p>
-                    {(paper.projectPath || paper.manuscriptPath) && <div class="publication-links">
-                      {paper.projectPath && <a href={`${base}${paper.projectPath}`}>Project & videos <Icon name="arrow" size={13} /></a>}
-                      {paper.manuscriptPath && <a href={`${base}${paper.manuscriptPath}`} target="_blank" rel="noopener noreferrer">Author manuscript PDF <Icon name="arrow" size={13} /></a>}
-                    </div>}
-                  </div>
-                </li>
-              ))}
-            </ol>
-          </div>
-        ))}
-      </section>
-
-      <section id="background" class="section-panel" aria-labelledby="background-heading">
-        <div class="section-heading"><span class="section-number" aria-hidden="true">03</span><h2 id="background-heading">Education & experience</h2></div>
-        <ol class="education-list">
-          {profile.education.map((item) => (
-            <li>
-              <div class="timeline-date">{item.period}</div>
-              <div class="education-content">
-                <h3>{item.degree}</h3>
-                <p class="institution">{item.institution}<span> · {item.location}</span></p>
-                {item.thesis && <p class="thesis"><span>Thesis</span> {item.thesis}</p>}
-                {item.supervisors && <p class="supervisors">{item.supervisors.length > 1 ? 'Supervisors' : 'Supervisor'}: {item.supervisors.join(' and ')}</p>}
-              </div>
-            </li>
+        <div class="section-panel publications-card">
+          {publicationGroups.map((type) => (
+            <div class="publication-group">
+              <h3 class="small-label">{type === 'Journal' ? 'Journal articles' : 'Conference papers'} ({publicationCounts[type]})</h3>
+              <ol class="publication-list">
+                {type === 'Journal' && profile.manuscripts.map((paper) => (
+                  <li class="publication manuscript-publication">
+                    <span class="status-label">{paper.status}</span>
+                    <div>
+                      <h4>{paper.title}</h4>
+                      <p class="authors">{paper.authors.split(/(S\. Meng)/g).map((part) => part === 'S. Meng' ? <strong>{part}</strong> : part)}</p>
+                      <p class="publication-details">{paper.status === 'Submitted' && 'Submitted to '}{paper.venue}</p>
+                    </div>
+                  </li>
+                ))}
+                {profile.publications.filter((paper) => paper.type === type).toSorted((a, b) => b.year - a.year).map((paper) => (
+                  <li class="publication">
+                    <span class="publication-year">{paper.year}</span>
+                    <div>
+                      <h4>{paper.projectPath ? <a class="publication-title-link" href={`${base}${paper.projectPath}`}>{paper.title}</a> : paper.title}</h4>
+                      <p class="authors">{paper.authors.split(/(S\. Meng)/g).map((part) => part === 'S. Meng' ? <strong>{part}</strong> : part)}</p>
+                      <p class="venue">{paper.venue}</p>
+                      <p class="publication-details">{paper.details}</p>
+                      {(paper.projectPath || paper.manuscriptPath) && <div class="publication-links">
+                        {paper.projectPath && <a class="button button-primary" href={`${base}${paper.projectPath}`}>Project Details <Icon name="arrow" size={14} /></a>}
+                        {paper.manuscriptPath && <a class="button button-primary" href={resolveHref(paper.manuscriptPath)} target="_blank" rel="noopener noreferrer">Paper Link <Icon name="arrow" size={14} /></a>}
+                      </div>}
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
           ))}
-        </ol>
-        <section class="academic-visits" aria-labelledby="visits-heading">
-          <h3 id="visits-heading" class="small-label">Academic exchanges and visits</h3>
-          {profile.visits.map((visit) => (
-            <article class="visit">
-              <div class="visit-heading"><h4>{visit.title} · {visit.institution}</h4><span>{visit.period}</span></div>
-              <p>{visit.description}</p>
-              <p class="supervisors">{[
-                visit.location,
-                visit.invitedBy && `Invited by: ${visit.invitedBy}`,
-                visit.organizer && `Organized by: ${visit.organizer}`,
-                visit.host && `Host: ${visit.host}`,
-              ].filter(Boolean).join(' · ')}</p>
-            </article>
-          ))}
-        </section>
-      </section>
-
-      <section id="service" class="section-panel" aria-labelledby="service-heading">
-        <div class="section-heading"><span class="section-number" aria-hidden="true">04</span><h2 id="service-heading">Academic service</h2></div>
-        <div class="service-grid">
-          <div><h3 class="small-label">Journal reviewer</h3><ul class="service-list">{profile.service.journals.map((journal) => <li>{journal}</li>)}</ul></div>
-          <div><h3 class="small-label">Conference reviewer</h3><ul class="service-list">{profile.service.conferences.map((conference) => <li>{conference}</li>)}</ul></div>
         </div>
       </section>
 
-      <section id="awards" class="section-panel" aria-labelledby="awards-heading">
-        <div class="section-heading"><span class="section-number" aria-hidden="true">05</span><h2 id="awards-heading">Selected honors & awards</h2></div>
-        <ul class="awards-list">
-          {profile.awards.map((award) => (
-            <li><span class="award-date">{award.period}</span><div><h3>{award.title}</h3><p>{award.organization}</p></div></li>
-          ))}
-        </ul>
+      <section id="background" class="outside-heading-section" aria-labelledby="background-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">03</span><h2 id="background-heading">Education & Experience</h2></div>
+        <div class="section-panel section-content-card">
+          <ol class="education-list">
+            {profile.education.map((item) => (
+              <li>
+                <div class="timeline-date">{item.period}</div>
+                <div class="education-content">
+                  <div class="education-heading">
+                    <div class="education-school">
+                      <h3>{item.degree}</h3>
+                      <p class="institution">{item.institution}<span> · {item.location}</span></p>
+                    </div>
+                    <div class="education-logos" aria-label={`${item.institution} affiliations`}>
+                      {item.logos.map((logo) => <img class={`education-logo education-logo-${logo.shape}`} src={`${base}${logo.source}`} alt={logo.alt} width={logo.width} height={logo.height} loading="lazy" />)}
+                    </div>
+                  </div>
+                  {item.thesis && <p class="thesis"><span>Thesis</span> {item.thesis}</p>}
+                  {item.supervisors && <p class="supervisors">{item.supervisors.length > 1 ? 'Supervisors' : 'Supervisor'}: {item.supervisors.join(' and ')}</p>}
+                </div>
+              </li>
+            ))}
+          </ol>
+          <section class="academic-visits" aria-labelledby="visits-heading">
+            <h3 id="visits-heading" class="small-label">Academic exchanges and visits</h3>
+            {profile.visits.map((visit) => (
+              <article class="visit">
+                <div class="visit-heading"><h4>{visit.title} · {visit.institution}</h4><span>{visit.period}</span></div>
+                <p>{visit.description}</p>
+                <p class="supervisors">{[
+                  visit.location,
+                  visit.invitedBy && `Invited by: ${visit.invitedBy}`,
+                  visit.organizer && `Organized by: ${visit.organizer}`,
+                  visit.host && `Host: ${visit.host}`,
+                ].filter(Boolean).join(' · ')}</p>
+              </article>
+            ))}
+          </section>
+        </div>
+      </section>
+
+      <section id="service" class="outside-heading-section" aria-labelledby="service-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">04</span><h2 id="service-heading">Academic Service</h2></div>
+        <div class="section-panel section-content-card">
+          <div class="service-grid">
+            <div><h3 class="small-label">Journal reviewer</h3><ul class="service-list">{profile.service.journals.map((journal) => <li>{journal}</li>)}</ul></div>
+            <div><h3 class="small-label">Conference reviewer</h3><ul class="service-list">{profile.service.conferences.map((conference) => <li>{conference}</li>)}</ul></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="awards" class="outside-heading-section" aria-labelledby="awards-heading">
+        <div class="section-heading"><span class="section-number" aria-hidden="true">05</span><h2 id="awards-heading">Selected Honors & Awards</h2></div>
+        <div class="section-panel section-content-card">
+          <ul class="awards-list">
+            {profile.awards.map((award) => (
+              <li><span class="award-date">{award.period}</span><div><h3>{award.title}</h3><p>{award.organization}</p></div></li>
+            ))}
+          </ul>
+        </div>
       </section>
 
       <section id="contact" class="contact-panel" aria-labelledby="contact-heading">
-        <div><p class="small-label">Get in touch</p><h2 id="contact-heading">Let's connect.</h2></div>
+        <div><p class="small-label">Get in touch</p><h2 id="contact-heading">Contact.</h2></div>
         <a href={`mailto:${profile.email}`}>{profile.email}<Icon name="arrow" size={22} /></a>
       </section>
     </main>

@@ -25,7 +25,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <p class="project-affiliation">{project.affiliation}</p>
       <p class="project-journal">{project.location} · {project.date}</p>
       <div class="project-actions">
-        <a class="button button-primary" href="#demonstration">Watch rollback demonstration <span aria-hidden="true">↓</span></a>
+        <a class="button button-primary" href="#demonstration">Compare platform recordings <span aria-hidden="true">↓</span></a>
         <a class="button button-outline" href="#system-scheme">View experimental scheme <span aria-hidden="true">↓</span></a>
         <a class="text-link" href="#citation">Cite this work</a>
       </div>
@@ -44,26 +44,64 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </section>
 
     <section id="demonstration" class="project-section" aria-labelledby="demonstration-title">
-      <div class="project-section-heading"><p class="small-label">Platform recording</p><h2 id="demonstration-title">Rollback after a delayed trust decision</h2><p>The recording illustrates the finite-window replay mechanism used to revise recent observer updates after an unreliable source is identified.</p></div>
-      <article class="demo-card" aria-labelledby={`${project.video.id}-title`}>
-        <div class="demo-heading"><span class="section-number" aria-hidden="true">01</span><h3 id={`${project.video.id}-title`}>{project.video.title}</h3><span class="demo-label">QCar/LIMO platform</span></div>
-        <div class="video-frame">
-          <video class="video-four-three" controls playsinline preload="metadata" width={project.video.width} height={project.video.height} aria-labelledby={`${project.video.id}-title`} aria-describedby={`${project.video.id}-description`}>
-            <source src={`${base}${project.video.source}`} type="video/mp4" />
-            Your browser does not support embedded video. <a href={`${base}${project.video.source}`}>Download the MP4 recording.</a>
-          </video>
-        </div>
-        <div class="demo-caption"><p id={`${project.video.id}-description`}>{project.video.description}</p><a href={`${base}${project.video.source}`} download>Download video <Icon name="arrow" size={14} /></a></div>
-      </article>
+      <div class="project-section-heading"><p class="small-label">Platform comparison</p><h2 id="demonstration-title">Without and with rollback</h2><p>The companion recordings contrast the estimate retained after a delayed trust decision with the finite-window replay used to revise recent observer updates.</p></div>
+      <div class="demo-list comparison-demo-grid">
+        {project.comparisonVideos.map((video, index) => (
+          <article class="demo-card" aria-labelledby={`${video.id}-title`}>
+            <div class="demo-heading"><span class="section-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span><h3 id={`${video.id}-title`}>{video.title}</h3><span class="demo-label">QCar/LIMO platform</span></div>
+            <div class="video-frame">
+              <video class="video-four-three" controls playsinline preload="metadata" width={video.width} height={video.height} aria-labelledby={`${video.id}-title`} aria-describedby={`${video.id}-description`}>
+                <source src={`${base}${video.source}`} type="video/mp4" />
+                Your browser does not support embedded video. <a href={`${base}${video.source}`}>Download the MP4 recording.</a>
+              </video>
+            </div>
+            <div class="demo-caption"><p id={`${video.id}-description`}>{video.description}</p><a href={`${base}${video.source}`} download>Download video <Icon name="arrow" size={14} /></a></div>
+          </article>
+        ))}
+      </div>
     </section>
 
     <section id="results" class="section-panel project-results" aria-labelledby="results-title">
-      <div class="project-section-heading"><p class="small-label">Validation</p><h2 id="results-title">What the reported tests show</h2><p>The findings below describe the manuscript's tested scenarios and should be read within the stated assumptions and validation scope.</p></div>
-      <div class="finding-grid">
-        {project.findings.map((finding) => (
-          <article><h3>{finding.title}</h3><p>{finding.description}</p></article>
+      <div class="project-section-heading"><p class="small-label">Experimental results</p><h2 id="results-title">What the reported tests show</h2><p>The five-vehicle numerical campaign applies five attacks from 10–15 s: position and speed biases, intermittent position and speed faults, and packet drops. The platform tests then compare rollback and trust-gated platoon control under real packet timing.</p></div>
+
+      <div class="result-highlight-grid">
+        {project.resultHighlights.map((result) => (
+          <article class="result-highlight"><p class="result-value">{result.value}</p><h3>{result.title}</h3><p>{result.description}</p></article>
         ))}
       </div>
+
+      <section class="experiment-block" aria-labelledby="aggregate-results-title">
+        <div class="experiment-heading"><p class="small-label">Numerical campaign</p><h3 id="aggregate-results-title">Aggregate attack-window performance</h3><p>Raw combined state-estimation RMSE, trust response, source suppression, and average detection time by corruption mode.</p></div>
+        <div class="experiment-table-wrap">
+          <table class="experiment-table">
+            <thead><tr><th scope="col">Mode</th><th scope="col">Mean RMSE</th><th scope="col">Std. dev.</th><th scope="col">Max. RMSE</th><th scope="col">Trust drop</th><th scope="col">Source zero</th><th scope="col">Detection time</th></tr></thead>
+            <tbody>{project.aggregateResults.map((row) => <tr><th scope="row">{row.mode}</th><td>{row.meanRmse}</td><td>{row.standardDeviation}</td><td>{row.maximumRmse}</td><td>{row.trustDrop}</td><td>{row.sourceZero}</td><td>{row.detectionTime}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p class="result-note">The intermittent 10 m position fault (Case 2) was the dominant attack, with a cross-mode mean RMSE of 1.232. The other four cases remained below 0.405 in every tested configuration.</p>
+      </section>
+
+      <section class="experiment-block" aria-labelledby="rollback-results-title">
+        <div class="experiment-heading"><p class="small-label">Rollback comparison</p><h3 id="rollback-results-title">Closed-loop XY trajectory RMSE</h3><p>Rollback moved the final estimate closer to the reference; adding accepted relative-pose anchoring produced the lowest reported trajectory error.</p></div>
+        <div class="experiment-table-wrap">
+          <table class="experiment-table">
+            <thead><tr><th scope="col">Attack channel</th><th scope="col">No rollback</th><th scope="col">Rollback</th><th scope="col">Rollback + anchoring</th></tr></thead>
+            <tbody>{project.trajectoryResults.map((row) => <tr><th scope="row">{row.channel}</th><td>{row.noRollback}</td><td>{row.rollback}</td><td class="best-result">{row.rollbackAnchoring}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p class="result-note">In the platform rollback trace, the position-estimation error reached approximately 0.8 m without rollback. Rollback reduced the error by 54.4% at the correction instant; rollback plus anchoring reduced it by 75.2%.</p>
+      </section>
+
+      <section class="experiment-block" aria-labelledby="control-results-title">
+        <div class="experiment-heading"><p class="small-label">Trust-gated control</p><h3 id="control-results-title">Attack-window closed-loop metrics</h3><p>The attacked source received a mean observer weight below 0.05 for both hosts, while the projected minimum spacing stayed above the 0.30 m reporting margin.</p></div>
+        <div class="experiment-table-wrap">
+          <table class="experiment-table">
+            <thead><tr><th scope="col">Host</th><th scope="col">Detection delay</th><th scope="col">CACC fusion gate</th><th scope="col">Attacked-source weight</th><th scope="col">Minimum spacing</th><th scope="col">Gap RMSE</th></tr></thead>
+            <tbody>{project.controlResults.map((row) => <tr><th scope="row">{row.host}</th><td>{row.detectionDelay}</td><td>{row.caccGate}</td><td>{row.attackedSourceWeight}</td><td>{row.minimumSpacing}</td><td>{row.gapRmse}</td></tr>)}</tbody>
+          </table>
+        </div>
+        <p class="result-note result-caveat"><strong>Scope:</strong> this is a trust-gated ACC/CACC feasibility check with a path-projected spacing diagnostic. It is not a formal string-stability analysis or a full two-dimensional collision-avoidance guarantee.</p>
+      </section>
     </section>
 
     <section id="citation" class="section-panel project-citation" aria-labelledby="citation-title">

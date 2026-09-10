@@ -11,6 +11,13 @@ export interface Education {
   institution: string;
   location: string;
   period: string;
+  logos: Array<{
+    source: string;
+    alt: string;
+    width: number;
+    height: number;
+    shape: 'wide' | 'square';
+  }>;
   thesis?: string;
   supervisors?: string[];
 }
@@ -58,6 +65,7 @@ export interface Profile {
   location: string;
   email: string;
   linkedin: string;
+  github: string;
   photo: string;
   summary: string[];
   researchInterests: ResearchInterest[];
@@ -78,11 +86,11 @@ export const profile: Profile = {
   location: 'France',
   email: 'shengya.meng@univ-lorraine.fr',
   linkedin: 'https://www.linkedin.com/in/shengya-meng-1b299a294',
+  github: 'https://github.com/mengshengya',
   photo: '/images/profile/shengya-meng.jpg',
   summary: [
-    'I am a PhD candidate in Automatic Control at CRAN, University of Lorraine, France, supervised by Ali Zemouche and Marouane Alma. My doctoral research focuses on advanced estimation algorithms for autonomous vehicles.',
-    'My research interests include distributed observers, nonlinear systems, and vehicle applications. I work on state estimation and observer design for connected vehicles and vehicle platoons, including communication delays, sensor faults, and string stability.',
-    'I received my master’s degree in Control Science and Engineering from Northeastern University in 2023 and my bachelor’s degree in Automation from Guizhou University in 2020.',
+    'Shengya Meng is a PhD candidate in Automatic Control at CRAN, University of Lorraine, France, supervised by Ali Zemouche and Marouane Alma. Her doctoral research focuses on advanced estimation algorithms for autonomous vehicles. She received her master’s degree in Control Science and Engineering from Northeastern University in 2023 and her bachelor’s degree in Automation from Guizhou University in 2020.',
+    'Her research interests include distributed observers, nonlinear systems, and vehicle applications. She works on state estimation and observer design for connected vehicles and vehicle platoons, including communication delays, sensor faults, and string stability.',
   ],
   researchInterests: [
     {
@@ -107,6 +115,22 @@ export const profile: Profile = {
       institution: 'University of Lorraine',
       location: 'France',
       period: 'Sep 2023 – Present',
+      logos: [
+        {
+          source: '/images/education/university-of-lorraine.png',
+          alt: 'University of Lorraine logo',
+          width: 384,
+          height: 134,
+          shape: 'wide',
+        },
+        {
+          source: '/images/education/cran.png',
+          alt: 'CRAN logo',
+          width: 900,
+          height: 382,
+          shape: 'wide',
+        },
+      ],
       thesis: 'Advanced Estimation Algorithm in the Application to Autonomous Vehicles',
       supervisors: ['Ali Zemouche', 'Marouane Alma'],
     },
@@ -115,6 +139,15 @@ export const profile: Profile = {
       institution: 'Northeastern University',
       location: 'Shenyang, China',
       period: '2020 – 2023',
+      logos: [
+        {
+          source: '/images/education/northeastern-university.png',
+          alt: 'Northeastern University logo',
+          width: 900,
+          height: 275,
+          shape: 'wide',
+        },
+      ],
       thesis: 'H∞ Observer Design for State of Charge in Battery Based on Generalized System',
       supervisors: ['Fanwei Meng'],
     },
@@ -123,6 +156,15 @@ export const profile: Profile = {
       institution: 'Guizhou University',
       location: 'Guiyang, China',
       period: '2016 – 2020',
+      logos: [
+        {
+          source: '/images/education/guizhou-university.png',
+          alt: 'Guizhou University logo',
+          width: 600,
+          height: 611,
+          shape: 'square',
+        },
+      ],
     },
   ],
   publications: [
@@ -248,6 +290,7 @@ export const profile: Profile = {
       year: 2026,
       type: 'Conference',
       projectPath: ifacWc2026.path,
+      manuscriptPath: ifacWc2026.paper,
     },
     {
       title: 'Joint Design of Matrix-Weighted Communication Topologies and Distributed Controllers for Vehicular Platoons: An LMI-Based String Stability Approach',

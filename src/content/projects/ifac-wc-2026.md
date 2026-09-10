@@ -22,6 +22,6 @@ Trust decisions may arrive after a corrupted packet has already affected an esti
 
 The analysis provides checkable sufficient conditions for local nonlinear input-to-state stability under bounded model uncertainty, input mismatch, accepted corruption, and trust-induced switching. Direct local anchors and sequentially rooted accepted graphs give two routes to contraction.
 
-The validation combines a five-vehicle numerical campaign with a mixed QCar/LIMO 1:10-scale platform. The tested cases include position and speed corruption, simultaneous local-global corruption, packet drops, delayed trust decisions, and a trust-gated ACC/CACC trajectory check.
+The validation combines a five-vehicle numerical campaign with a mixed QCar/LIMO 1:10-scale platform. The tested cases include position and speed corruption, simultaneous local-global corruption, packet drops, delayed trust decisions, and a trust-gated ACC/CACC trajectory check. The reported experiments detect every tested attack, compare source suppression across corruption modes, and quantify the benefit of rollback—with and without accepted relative-pose anchoring—using position and closed-loop trajectory errors.
 
 The guarantees are deliberately conditional. They do not establish universal attack detection, exact reconstruction of a rejected malicious vehicle, formal string stability, or full two-dimensional collision avoidance. A physically plausible bias inside the accepted packet set can still leave a nonzero ultimate estimation error.

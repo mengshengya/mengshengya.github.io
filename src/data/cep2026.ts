@@ -1,7 +1,7 @@
 // Verified against the supplied manuscript and recordings; see docs/cep-2026-materials.md.
 export const cep2026 = {
   path: '/research/cep-2026/',
-  shortTitle: 'String-stable vehicle platoons',
+  shortTitle: 'Distributed Observer-Controller Co-Design for String Stability in Vehicle Platoons',
   title: 'Distributed Observer-Controller Co-Design for String Stability in Vehicle Platoons',
   authors: ['Shengya Meng', 'Ali Zemouche', 'Marouane Alma'],
   affiliation: 'Université de Lorraine, CNRS, CRAN, France',
