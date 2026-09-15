@@ -138,7 +138,8 @@ npm.cmd run preview
 
 - CEP 论文入口已由站内 PDF 改为 HAL 版本记录 `https://hal.science/hal-05597557v1`，首页 Featured research、Publications 和 CEP 项目页共用该地址。
 - 网站公开文件 `public/files/papers/cep-2026/author-manuscript.pdf` 已移除；`materials/` 中的原始论文资料继续保留，不参与网站发布。
-- 此项变更仅在本地完成，尚未提交、推送或部署。
+- 此项变更已随提交 [`4a19ba1`](https://github.com/mengshengya/mengshengya.github.io/commit/4a19ba1ce29b85571ec7d03aee7c43afe21df7b9) 发布；[GitHub Actions 运行 34956246302](https://github.com/mengshengya/mengshengya.github.io/actions/runs/34956246302) 完成并返回 `success`。
+- 正式首页和 CEP 项目页均返回 HTTP 200；线上 HTML 已确认显示 `Under Review`、`Technical skills`、HAL 链接及 `Paper on HAL`，旧 PDF URL 返回 HTTP 404。
 
 ## 2026-09-09 IFAC WC 2026 项目页本地更新
 
