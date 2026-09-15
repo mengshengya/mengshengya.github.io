@@ -37,7 +37,7 @@ export const featuredResearchProjects: FeaturedResearchProject[] = [
     title: cep2026.shortTitle,
     description: 'Distributed estimation and control for vehicle platoons, evaluated on smooth and wavy roads in QLabs.',
     actionLabel: 'Details',
-    paperPath: cep2026.manuscript,
+    paperPath: cep2026.paper,
     highlights: cep2026.highlights,
     path: cep2026.path,
     image: cep2026.featuredImage,

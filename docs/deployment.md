@@ -134,6 +134,12 @@ npm.cmd run preview
 - Featured research 与其他首页同级分区标题统一调整为比姓名低一档的响应式字号。已查看 1440 × 1500 桌面和 500 × 1900 窄屏预览：双卡片网格、放大的期刊/会议与年份、CEP 四个创新点标签及 IFAC WC 留白图片区均显示正常，窄屏自动切换为单列且无横向溢出。
 - 本节修改已随下方 IFAC WC 2026 项目页更新一并发布；正式网站现已提供新 CEP PDF、技术路线图和 Featured research 双卡片版式。
 
+## 2026-09-15 CEP 论文链接更新
+
+- CEP 论文入口已由站内 PDF 改为 HAL 版本记录 `https://hal.science/hal-05597557v1`，首页 Featured research、Publications 和 CEP 项目页共用该地址。
+- 网站公开文件 `public/files/papers/cep-2026/author-manuscript.pdf` 已移除；`materials/` 中的原始论文资料继续保留，不参与网站发布。
+- 此项变更仅在本地完成，尚未提交、推送或部署。
+
 ## 2026-09-09 IFAC WC 2026 项目页本地更新
 
 - 根据用户提供的手稿完善首页 IFAC WC 2026 研究卡片，并新增 `/research/ifac-wc-2026/` 项目页；页面覆盖信任评估、自适应融合权重、本地观测器锚点、有限窗口回滚、验证结果与适用边界。

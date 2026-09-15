@@ -8,12 +8,12 @@
 
 | 首页内容 | 资料来源 | 整理方式 |
 | --- | --- | --- |
-| 姓名、博士在读身份、机构、研究兴趣、邮箱 | 第 1 页 | `Shengya MENG` 按网站排版统一为 `Shengya Meng`；博士在读自 2023 年 9 月开始，未添加预计毕业时间 |
+| 姓名、博士在读身份、机构、研究兴趣、邮箱 | 第 1 页及用户 2026-09-15 更新 | `Shengya MENG` 按网站排版统一为 `Shengya Meng`；博士阶段时间按用户更新为 `Sep 2023 - Oct 2026` |
 | 当前工作单位 | 用户 2026-09-08 对话更正 | 使用 `CRAN, University of Lorraine`，同步资料卡、简介、副标题和页面摘要；教育经历保留学位授予机构 |
 | LinkedIn | 各页页脚 | 使用简历可见的链接文本并补上 `https://` 协议；PDF 内部链接注释错误地重复了域名和 `/in/`，不复制这一格式错误 |
-| 个人简介、三个研究方向 | 第 1 页及第 1–3 页论文题目 | 归纳分布式观测器、非线性系统、车辆应用，以及论文涉及的通信时延、传感器故障和串稳定性；未增加未提供的技能或任职 |
+| 个人简介、三个研究方向、技术技能 | 第 1 页、第 1–3 页论文题目及用户 2026-09-15 更新 | 归纳分布式观测器、非线性系统、车辆应用，以及论文涉及的通信时延、传感器故障和串稳定性；Technical skills 按用户提供内容列出 Matlab 和 Python，未增加未提供的任职 |
 | 三段教育经历与导师 | 第 1 页 Education | 保留机构、专业、年份和学位论文；未将博士在读误写为已获学位 |
-| Journal articles (14) | 第 1–2 页 International Journal Papers [1]–[14] | 完整展示简历所列条目；[1]–[4] 保留原文 `Prepared` / `Submitted` 状态，其余条目按年份降序排列 |
+| Journal articles (14) | 第 1–2 页 International Journal Papers [1]–[14] | 完整展示简历所列条目；[1]–[4] 保留并按用户更新的 `Prepared` / `Under Review` 状态，其余条目按年份降序排列 |
 | Conference papers (7) | 第 3 页 International Conference Papers [1]–[7] | 完整展示简历所列条目并按年份降序排列；未增加简历没有提供的链接或录用状态 |
 | 审稿服务 | 第 3–4 页 Professional Activities | 保留列出的期刊和会议，将 ACC 2024 / 2025 合并显示 |
 | 四项学术交流与访问 | 简历第 4 页及用户 2026-09-08 提供的 Academic Exchanges and Visits 截图 | 按时间倒序新增 ArtiSmo、FAAR PRONERGY、SAGIP 三项，保留已有 Groningen 条目，详见下节 |
@@ -36,7 +36,7 @@
 
 ## 论文展示说明
 
-- Journal articles 标题后的 14 是简历期刊分组的条目总数，其中包含 1 个 Prepared 和 3 个 Submitted；页面以状态标签区分，不将它们误写为已发表成果。
+- Journal articles 标题后的 14 是简历期刊分组的条目总数，其中包含 1 个 Prepared 和 3 个 Under Review；页面以状态标签区分，不将它们误写为已发表成果。
 - 第 2 页期刊 [8] 与 [9] 标题完全相同，但作者、期刊和年份不同；首页按简历原文保留为两个独立条目，未擅自更正。
 - 未为会议论文额外断言口头报告、获奖或录用状态；只呈现简历记载的会议书目信息。
 - 简历没有提供 Google Scholar、ORCID、GitHub 或论文下载链接，因此没有创建这些链接。
@@ -54,7 +54,11 @@
 
 CEP 2026 条目已根据新提供的作者稿、报告和演示文件扩展：增加项目页与作者稿链接，元数据集中在 `src/data/cep2026.ts`。本次材料对应关系见 [CEP 2026 材料说明](cep-2026-materials.md)。上文“未添加论文 PDF 或项目链接”记录的是简历整理阶段的状态。
 
-更新论文时同时维护状态、作者顺序、题目、出版信息；只有用户提供或核实的地址才能加入链接。若论文从 Submitted 变为发表，将其从 `manuscripts` 移入 `publications` 并填入对应年份与书目信息。Journal articles 与 Conference papers 的数量由结构化数据自动计算。
+更新论文时同时维护状态、作者顺序、题目、出版信息；只有用户提供或核实的地址才能加入链接。若论文从 Under Review 变为发表，将其从 `manuscripts` 移入 `publications` 并填入对应年份与书目信息。Journal articles 与 Conference papers 的数量由结构化数据自动计算。
+
+Automatica 2024 论文 “Observer Design Method for Nonlinear Generalized Systems with Nonlinear Algebraic Constraints with Applications” 的公开链接由用户提供并核实为 DOI `10.1016/j.automatica.2024.111512`。
+
+International Journal of Control, Automation and Systems 2024 论文 “Robust Adaptive Fault-Tolerant Asymptotic Tracking Control for Magnetic Levitation System Based on Nussbaum Gain and Neural Network” 的公开链接由用户提供，并核实为 DOI `10.1007/s12555-022-0414-z`；该链接不用于同名的 2022 年 Entropy 论文。
 
 ## 初稿验证（2026-09-07）
 

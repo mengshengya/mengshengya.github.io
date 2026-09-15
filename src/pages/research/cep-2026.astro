@@ -7,6 +7,7 @@ import { Content } from '../../content/projects/cep-2026.md';
 import '../../styles/project.css';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const resolveHref = (path: string) => /^https?:\/\//.test(path) ? path : `${base}${path}`;
 ---
 
 <BaseLayout title={`CEP 2026 | ${project.title}`} description={project.summary}>
@@ -25,7 +26,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <p class="project-affiliation">{project.affiliation}</p>
       <p class="project-journal">{project.venue}, Vol. {project.volume}, Article {project.article}, {project.year}</p>
       <div class="project-actions">
-        <a class="button button-primary" href={`${base}${project.manuscript}`} target="_blank" rel="noopener noreferrer">Author manuscript PDF <Icon name="arrow" size={16} /></a>
+        <a class="button button-primary" href={resolveHref(project.paper)} target="_blank" rel="noopener noreferrer">Paper on HAL <Icon name="arrow" size={16} /></a>
         <a class="button button-outline" href="#demonstrations">Watch demonstrations <span aria-hidden="true">↓</span></a>
         <a class="text-link" href="#citation">Cite this work</a>
       </div>
@@ -81,7 +82,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
       <p>{project.authors.join(', ')}. {project.title}. <em>{project.venue}</em>, {project.volume}, {project.article}, {project.year}.</p>
       <pre><code id="bibtex">{cep2026Citation}</code></pre>
       <p class="copy-status" role="status" aria-live="polite"></p>
-      <a class="text-link" href={`${base}${project.manuscript}`} target="_blank" rel="noopener noreferrer">Read the supplied author manuscript <Icon name="arrow" size={15} /></a>
+      <a class="text-link" href={resolveHref(project.paper)} target="_blank" rel="noopener noreferrer">View the paper on HAL <Icon name="arrow" size={15} /></a>
     </section>
   </main>
 

@@ -49,8 +49,14 @@ const resolveHref = (path: string) => /^https?:\/\//.test(path) ? path : `${base
         </div>
       </div>
       <div class="sidebar-note">
-        <span class="small-label">Research focus</span>
-        <ul>{profile.researchInterests.map((interest) => <li>{interest.title}</li>)}</ul>
+        <div class="sidebar-note-section">
+          <span class="small-label">Research focus</span>
+          <ul>{profile.researchInterests.map((interest) => <li>{interest.title}</li>)}</ul>
+        </div>
+        <div class="sidebar-note-section">
+          <span class="small-label">Technical skills</span>
+          <ul>{profile.technicalSkills.map((skill) => <li>{skill}</li>)}</ul>
+        </div>
       </div>
     </aside>
 
@@ -78,30 +84,34 @@ const resolveHref = (path: string) => /^https?:\/\//.test(path) ? path : `${base
         <div class="section-panel publications-card">
           {publicationGroups.map((type) => (
             <div class="publication-group">
-              <h3 class="small-label">{type === 'Journal' ? 'Journal articles' : 'Conference papers'} ({publicationCounts[type]})</h3>
+              <h3 class="publication-group-heading">{type === 'Journal' ? 'Journal articles' : 'Conference papers'} ({publicationCounts[type]})</h3>
               <ol class="publication-list">
                 {type === 'Journal' && profile.manuscripts.map((paper) => (
                   <li class="publication manuscript-publication">
-                    <span class="status-label">{paper.status}</span>
+                    <div class="publication-meta">
+                      <span class="status-label">{paper.status}</span>
+                    </div>
                     <div>
                       <h4>{paper.title}</h4>
                       <p class="authors">{paper.authors.split(/(S\. Meng)/g).map((part) => part === 'S. Meng' ? <strong>{part}</strong> : part)}</p>
-                      <p class="publication-details">{paper.status === 'Submitted' && 'Submitted to '}{paper.venue}</p>
+                      <p class="publication-details">{paper.status === 'Under Review' && 'Submitted to '}{paper.venue}</p>
                     </div>
                   </li>
                 ))}
                 {profile.publications.filter((paper) => paper.type === type).toSorted((a, b) => b.year - a.year).map((paper) => (
                   <li class="publication">
-                    <span class="publication-year">{paper.year}</span>
+                    <div class="publication-meta">
+                      <span class="publication-year">{paper.year}</span>
+                      {(paper.projectPath || paper.manuscriptPath) && <div class="publication-links">
+                        {paper.projectPath && <a class="button button-primary" href={`${base}${paper.projectPath}`}>Project Details <Icon name="arrow" size={14} /></a>}
+                        {paper.manuscriptPath && <a class="button button-primary" href={resolveHref(paper.manuscriptPath)} target="_blank" rel="noopener noreferrer">Paper Link <Icon name="arrow" size={14} /></a>}
+                      </div>}
+                    </div>
                     <div>
                       <h4>{paper.projectPath ? <a class="publication-title-link" href={`${base}${paper.projectPath}`}>{paper.title}</a> : paper.title}</h4>
                       <p class="authors">{paper.authors.split(/(S\. Meng)/g).map((part) => part === 'S. Meng' ? <strong>{part}</strong> : part)}</p>
                       <p class="venue">{paper.venue}</p>
                       <p class="publication-details">{paper.details}</p>
-                      {(paper.projectPath || paper.manuscriptPath) && <div class="publication-links">
-                        {paper.projectPath && <a class="button button-primary" href={`${base}${paper.projectPath}`}>Project Details <Icon name="arrow" size={14} /></a>}
-                        {paper.manuscriptPath && <a class="button button-primary" href={resolveHref(paper.manuscriptPath)} target="_blank" rel="noopener noreferrer">Paper Link <Icon name="arrow" size={14} /></a>}
-                      </div>}
                     </div>
                   </li>
                 ))}

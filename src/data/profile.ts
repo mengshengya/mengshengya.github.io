@@ -37,7 +37,7 @@ export interface Manuscript {
   title: string;
   authors: string;
   venue: string;
-  status: 'Prepared' | 'Submitted';
+  status: 'Prepared' | 'Under Review' | 'Submitted';
 }
 
 export interface AcademicVisit {
@@ -69,6 +69,7 @@ export interface Profile {
   photo: string;
   summary: string[];
   researchInterests: ResearchInterest[];
+  technicalSkills: string[];
   education: Education[];
   publications: Publication[];
   manuscripts: Manuscript[];
@@ -109,12 +110,13 @@ export const profile: Profile = {
         'Observer design for nonlinear and generalized systems, including battery state-of-charge estimation.',
     },
   ],
+  technicalSkills: ['Matlab', 'Python'],
   education: [
     {
       degree: 'PhD in Automatic Control (in progress)',
       institution: 'University of Lorraine',
       location: 'France',
-      period: 'Sep 2023 – Present',
+      period: 'Sep 2023 - Oct 2026',
       logos: [
         {
           source: '/images/education/university-of-lorraine.png',
@@ -138,7 +140,7 @@ export const profile: Profile = {
       degree: 'Master in Control Science and Engineering',
       institution: 'Northeastern University',
       location: 'Shenyang, China',
-      period: '2020 – 2023',
+      period: 'Sep 2020 - Jul 2023',
       logos: [
         {
           source: '/images/education/northeastern-university.png',
@@ -155,7 +157,7 @@ export const profile: Profile = {
       degree: 'Bachelor in Automation',
       institution: 'Guizhou University',
       location: 'Guiyang, China',
-      period: '2016 – 2020',
+      period: 'Sep 2016 - Jul 2020',
       logos: [
         {
           source: '/images/education/guizhou-university.png',
@@ -176,7 +178,7 @@ export const profile: Profile = {
       year: cep2026.year,
       type: 'Journal',
       projectPath: cep2026.path,
-      manuscriptPath: cep2026.manuscript,
+      manuscriptPath: cep2026.paper,
     },
     {
       title: 'Distributed Unknown Input Observer for Vehicle Platoons Under Sensor Faults',
@@ -185,6 +187,7 @@ export const profile: Profile = {
       details: 'Busan · August 2026',
       year: 2026,
       type: 'Conference',
+      manuscriptPath: 'https://hal.science/hal-05597568v1',
     },
     {
       title: 'Distributed High-Gain/LMI Observer for Triangular Nonlinear Systems with Application to Vehicles',
@@ -193,6 +196,7 @@ export const profile: Profile = {
       details: 'Iceland · July 2025',
       year: 2025,
       type: 'Conference',
+      manuscriptPath: 'https://doi.org/10.1016/j.ifacol.2025.11.111',
     },
     {
       title: 'Observer Design Method for Nonlinear Generalized Systems with Nonlinear Algebraic Constraints with Applications',
@@ -201,6 +205,7 @@ export const profile: Profile = {
       details: 'Vol. 162, article 111512',
       year: 2024,
       type: 'Journal',
+      manuscriptPath: 'https://doi.org/10.1016/j.automatica.2024.111512',
     },
     {
       title: 'Nonlinear Observer Design for Vehicle Lateral Load Transfer Ratio Estimation',
@@ -209,14 +214,16 @@ export const profile: Profile = {
       details: 'Canada · July 2024',
       year: 2024,
       type: 'Conference',
+      manuscriptPath: 'https://doi.org/10.23919/ACC60939.2024.10645059',
     },
     {
-      title: 'An H∞ Observer for State of Charge Estimation of Lithium-Ion Batteries Based on Nonlinear Descriptor System',
-      authors: 'S. Meng, F. Meng, H. Chi, H. Chen',
+      title: 'A robust observer based on the nonlinear descriptor systems application to estimate the state of charge of lithium-ion batteries',
+      authors: 'S. Meng, F. Meng, H. Chi, H. Chen， A. Pang',
       venue: 'Journal of the Franklin Institute',
       details: 'Vol. 360, no. 16, pp. 11397–11413 · November 2023',
       year: 2023,
       type: 'Journal',
+      manuscriptPath: 'https://doi.org/10.1016/j.jfranklin.2023.08.037',
     },
     {
       title: 'Robust Adaptive Fault-Tolerant Asymptotic Tracking Control for Magnetic Levitation System Based on Nussbaum Gain and Neural Network',
@@ -225,14 +232,16 @@ export const profile: Profile = {
       details: 'Vol. 22, no. 1, pp. 163–173 · January 2024',
       year: 2024,
       type: 'Journal',
+      manuscriptPath: 'https://doi.org/10.1007/s12555-022-0414-z',
     },
     {
-      title: 'Robust Adaptive Fault-Tolerant Asymptotic Tracking Control for Magnetic Levitation System Based on Nussbaum Gain and Neural Network',
+      title: 'H∞ Observer Based on Descriptor Systems Applied to Estimate the State of Charge',
       authors: 'S. Meng, S. Li, H. Chi, F. Meng, A. Pang',
       venue: 'Entropy',
       details: 'Vol. 24, no. 3, article 420 · March 2022',
       year: 2022,
       type: 'Journal',
+      manuscriptPath: 'https://doi.org/10.3390/e24030420',
     },
     {
       title: 'Robust Controller Design for Multi-Input Multi-Output Systems Using Coefficient Diagram Method',
@@ -241,6 +250,7 @@ export const profile: Profile = {
       details: 'Vol. 23, no. 9, article 1180 · September 2021',
       year: 2021,
       type: 'Journal',
+      manuscriptPath: 'https://doi.org/10.3390/e23091180',
     },
     {
       title: 'Robust H-Inf Phase Control for Flexible System With Weak Damping',
@@ -249,6 +259,7 @@ export const profile: Profile = {
       details: 'Vol. 8, pp. 195733–195740',
       year: 2020,
       type: 'Journal',
+      manuscriptPath: 'https://ieeexplore.ieee.org/document/9241074',
     },
     {
       title: 'Tracking Control of Magnetic Levitation System Using Model-Free RBF Neural Network Design',
@@ -257,6 +268,7 @@ export const profile: Profile = {
       details: 'Vol. 8, pp. 204563–204572',
       year: 2020,
       type: 'Journal',
+      manuscriptPath: 'https://ieeexplore.ieee.org/abstract/document/9256344',
     },
     {
       title: 'Linearization Method of Nonlinear Magnetic Levitation System',
@@ -265,6 +277,7 @@ export const profile: Profile = {
       details: 'Vol. 2020, pp. 1–5',
       year: 2020,
       type: 'Journal',
+      manuscriptPath: 'https://doi.org/10.1155/2020/9873651',
     },
     {
       title: 'Design of Stable Controller for Flexible Solar Panel by H∞ Loop-Shaping Method',
@@ -273,6 +286,7 @@ export const profile: Profile = {
       details: 'Vol. 2020, pp. 1–5',
       year: 2020,
       type: 'Journal',
+      manuscriptPath: 'https://doi.org/10.1155/2020/6540167',
     },
     {
       title: 'Distributed High-Gain Observer Design of Interconnected Nonlinear Systems for Vehicle Platoon Application',
@@ -281,6 +295,7 @@ export const profile: Profile = {
       details: 'Busan · August 2026',
       year: 2026,
       type: 'Conference',
+      manuscriptPath: 'https://hal.science/hal-05647753v1',
     },
     {
       title: ifacWc2026.title,
@@ -299,6 +314,7 @@ export const profile: Profile = {
       details: 'Ancona · June 2026',
       year: 2026,
       type: 'Conference',
+      manuscriptPath: 'https://doi.org/10.1109/MED70602.2026.11598220',
     },
     {
       title: 'Distributed High-Gain Observer for Nonlinear Connected Autonomous Vehicle',
@@ -307,6 +323,7 @@ export const profile: Profile = {
       details: 'America · July 2025',
       year: 2025,
       type: 'Conference',
+      manuscriptPath: 'https://doi.org/10.23919/ACC63710.2025.11107847',
     },
   ],
   manuscripts: [
@@ -320,19 +337,19 @@ export const profile: Profile = {
       title: 'Distributed High-Gain/LMI State Estimation for Vehicle Platoons',
       authors: 'S. Meng, F. Meng, M. Alma, M. Haddad, A. Zemouche',
       venue: 'IEEE Transactions on Systems, Man, and Cybernetics: Systems',
-      status: 'Submitted',
+      status: 'Under Review',
     },
     {
       title: 'Trust-Aware Resilient Distributed Observer Design for Connected Vehicle Platoons',
       authors: 'Q. H. Nguyen, S. Meng, H. Rafaralahy, M. Haddad, A. Zemouche',
       venue: 'IEEE Transactions on Intelligent Transportation Systems',
-      status: 'Submitted',
+      status: 'Under Review',
     },
     {
       title: 'State Estimation for Connected and Autonomous Vehicles under Unknown V2V Communication Delays',
       authors: 'S. Meng, Q. H. Nguyen, M. Haddad, M. Alma, A. Zemouche',
       venue: 'IEEE Transactions on Intelligent Transportation Systems',
-      status: 'Submitted',
+      status: 'Under Review',
     },
   ],
   service: {

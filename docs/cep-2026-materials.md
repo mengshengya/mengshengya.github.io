@@ -1,11 +1,11 @@
 # CEP 2026 材料与网站展示
 
-项目页：`/research/cep-2026/`。首页 Featured research 区直接展示项目卡片，Publications 中的 CEP 2026 条目也链接至项目页及论文 PDF。
+项目页：`/research/cep-2026/`。首页 Featured research 区直接展示项目卡片，Publications 中的 CEP 2026 条目也链接至项目页及 HAL 论文记录。
 
 ## 内容来源
 
 - `materials/publications/cep-2026/cas-dc-template.pdf`：曾用于项目介绍、QLabs 场景说明和结果图核对的 14 页作者稿；已按用户 2026-09-09 的明确要求删除。相关内容仍可由新提供的正式论文及现有结果图核对。
-- `materials/publications/cep-2026/representative-publication.pdf`：用户 2026-09-09 新提供的 11 页论文 PDF，由 `materials/inbox/RepresentativePulication_shengya_cep.pdf` 归档并使用小写英文文件名。元数据给出 Control Engineering Practice 173 (2026) 107008 与 DOI `10.1016/j.conengprac.2026.107008`；网站当前的 **Author manuscript PDF** 链接按用户要求改为提供此文件的逐字节副本。
+- `materials/publications/cep-2026/representative-publication.pdf`：用户 2026-09-09 新提供的 11 页论文 PDF，由 `materials/inbox/RepresentativePulication_shengya_cep.pdf` 归档并使用小写英文文件名。元数据给出 Control Engineering Practice 173 (2026) 107008 与 DOI `10.1016/j.conengprac.2026.107008`；原件继续保留在非公开材料目录，网站不再发布其 PDF 副本。
 - `materials/projects/cep-2026/main.pdf`：同一题目的 26 页报告，包含并排演讲备注。本轮用于核对内容并归档，未作为公开幻灯片直接发布。
 - 卷号 173、文章号 107008 和年份 2026 最初来自用户简历；新提供论文的元数据再次确认这些信息并给出上述 DOI。网站未额外添加代码仓库地址。
 - 车辆队列验证是 QLabs 高保真仿真。正文第 10 页 Remark 1 提及在实物 QCar2 与数字孪生上检查部分系统组件，未报告实物多车编队实验；网站保留这一范围区别。
@@ -16,7 +16,7 @@
 | 原始材料 | 网站位置 / 用途 |
 | --- | --- |
 | `materials/publications/cep-2026/cas-dc-template.pdf` | 已按用户要求删除；不再保留或发布 |
-| `materials/publications/cep-2026/representative-publication.pdf` | `public/files/papers/cep-2026/author-manuscript.pdf`，逐字节一致的网站下载副本；保持既有 URL，页面链接无需分散维护 |
+| `materials/publications/cep-2026/representative-publication.pdf` | 仅保留为非公开原始材料；网站公开 PDF 副本已移除，论文入口改为 `https://hal.science/hal-05597557v1` |
 | `materials/projects/cep-2026/fig/platoon_4cars.PNG` | `public/images/research/cep-2026/platoon.png`，保留的项目环境图副本，当前页面未引用 |
 | `materials/inbox/Qcar_application.png` | `public/images/research/cep-2026/qcar-application.webp`，首页研究卡片配图 |
 | `materials/projects/cep-2026/fig/technical-roadmap.png` | 由 `materials/inbox/CEP_route.png` 归档；`public/images/research/cep-2026/technical-roadmap.png` 为项目页封面副本 |
@@ -48,6 +48,7 @@ FFmpeg 安装在忽略的 `tmp/media-tools/` 中，未新增网站运行依赖�
 ## 后续更新
 
 - 项目元数据、资源路径和 BibTeX 在 `src/data/cep2026.ts`；CEP 首页书目信息从该文件读取。
+- 论文链接由 `src/data/cep2026.ts` 集中维护，首页、Featured research 和项目页统一指向 HAL 版本记录 `https://hal.science/hal-05597557v1`。
 - 长篇介绍在 `src/content/projects/cep-2026.md`；项目页在 `src/pages/research/cep-2026.astro`，独立样式在 `src/styles/project.css`。
 - 继续提供新视频、图表或最终论文版本时，保留原件，再更新相同项目标识下的展示资源。
 - 首次项目页实现的验证记录如下；后续线上状态见 [部署记录](deployment.md)。

@@ -24,7 +24,7 @@ export const cep2026 = {
     'Joint observer and controller synthesis',
     'Validation in QLabs',
   ],
-  manuscript: '/files/papers/cep-2026/author-manuscript.pdf',
+  paper: 'https://hal.science/hal-05597557v1',
   videos: [
     {
       id: 'smooth-road',
